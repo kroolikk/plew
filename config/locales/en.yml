@@ -1,3 +1,6 @@
 en:
   main:
     photographer: "photography"
+    photo_own: "personal work"
+    photo_com: "commercial work"
+    contact: "info"

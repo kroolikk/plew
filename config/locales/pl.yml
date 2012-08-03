@@ -1,3 +1,6 @@
 en:
   main:
     photographer: "fotograf"
+    photo_own: "fotografia autorska"
+    photo_com: "fotografia komercyjna"
+    contact: "info"
