@@ -1,9 +1,21 @@
 PlewDev1::Application.routes.draw do
 
 
+
+
   # chwilowa akcja
   get "portfolio" => "home#portfolio", :as => :portfolio
   
+
+
+  
+  match "wybierz-dzial/:section" => "front_section#select_section", :as => :select_section
+  match "wybierz-dzial" => "front_section#select_section", :as => :select_sections
+
+  match "fotografia-autorska" => "front_section#auth_gallery", :as => :auth_gallery
+  match "fotografia-komercyjna" => "front_section#com_gallery", :as => :com_gallery
+
+
 
 
   match 'zmien-jezyk/:locale' => 'application#set_locale', :as => :set_language

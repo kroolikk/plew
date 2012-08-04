@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-	<title>Plewiński.com - Fotograf</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <link href='http://fonts.googleapis.com/css?family=Voces|Exo:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-	<script type="text/javascript">
-	$(window).load(function() {
-		  $('#slider').nivoSlider({
-			effect: 'fade',
-			controlNavThumbs:true,
-			manualAdvance: true,
-			prevText: '',
-		      nextText: ''
-		});
-	});
-	</script>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<div class="main-wrapper">
-		<header>
-			<h1><a href="/">Maciej Plewiński</a><span><%= t('main.photographer') %></span></h1>
-			
-			<nav><!-- start nav, będą 3 takie same navigacje ale osobne dla każdego z gości -->
-				<a href=""><%= link_to t('main.photo_own') %></a>
-				<a href=""><%= link_to t('main.photo_com') %></a>
-				<a href=""><%= link_to t('main.contact') %></a>
-			</nav>
-			<div class="clear seperator"></div>
-		</header>
-<%= yield %>
-	</div>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title>Plewiński.com - Fotograf</title>
+    <%= stylesheet_link_tag    "style.css" %>
+    <%= javascript_include_tag "application" %>
+    <link href='http://fonts.googleapis.com/css?family=Voces|Exo:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <script type="text/javascript">
+      $(window).load(function() {
+        $('#slider').nivoSlider({
+          effect: 'fade',
+          controlNavThumbs:true,
+          manualAdvance: true,
+          prevText: '',
+          nextText: ''
+        });
+      });
+    </script>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <header>
+	
+	<% if params[:controller] != 'home' || params[:action] != 'index' %>
+	  <h1><%= link_to display_user(session[:section]), auth_gallery_url %><span><%= t('main.photographer') %></span></h1>
+	  
+	  <nav><!-- start nav, będą 3 takie same navigacje ale osobne dla każdego z gości -->
+	    <a href=""><%= link_to t('main.photo_own') %></a>
+	    <a href=""><%= link_to t('main.photo_com') %></a>
+	    <a href=""><%= link_to t('main.contact') %></a>
+	  </nav>
+	  <div class="clear seperator"></div>
+	<% end %>
+	  
+      </header>
+      <%= yield %>
+
+      <%= link_to 'SG', select_sections_url %>
+    </div>
+  </body>
 </html>
