@@ -27,18 +27,25 @@
       <% end %>
      
     <div class="main-wrapper">
-      <header>Panel Administracyjny<%= ' - ' if session[:owner].present? %><%= display_user(session[:owner])%></header>
+      <header><h1>Panel Administracyjny<%= ' - ' if session[:owner].present? %><%= display_user(session[:owner])%></h1>
+      
+      <br><br>
+      <%= link_to image_tag('pl.png'), set_language_url(:locale => 'pl'), :class => "#{'lang_selected' if session[:locale] == 'pl'}" %> |
+	  <%= link_to image_tag('gb.png'), set_language_url(:locale => 'en'), :class => "last-flag #{'lang_selected' if session[:locale] == 'en'}" %>  - <% if session[:locale] == 'pl' %>
+      Modyfikujesz teraz <strong>Polskie</strong> treści
+      <% else %>
+      Modyfikujesz teraz <strong>Angielskie</strong> treści
+      <% end %>
+	  </header>
+	  
       <% if session[:admin_loggedin] %>
 	
 	<nav class="breadcrumbs">
-	  <div style="width: 25%; float: left;">
+	  <div style="min-width: 290px; float: left;">
 	    Zalogowano jako: <strong><%= session[:account_type] %> | <%= link_to "wyloguj", admin_logout_url %></strong>
 	    
 	    <span class="next-sep">&nbsp;</span>
 	  </div>
-	  <%= link_to 'pl', set_language_url(:locale => 'pl'), :class => "#{'lang_selected' if session[:locale] == 'pl'}" %> |
-	  <%= link_to 'en', set_language_url(:locale => 'en'), :class => "#{'lang_selected' if session[:locale] == 'en'}" %> |
-	  ---
 	  <%= link_to display_user("os1"), set_owner_url(:owner => 'os1') %> ---
 	  <%= link_to display_user("os2"), set_owner_url(:owner => 'os2') %> ---
 	  <%= link_to display_user("os3"), set_owner_url(:owner => 'os3') %> ---
