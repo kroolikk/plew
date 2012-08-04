@@ -3,16 +3,16 @@
       $(document).ready(function () {
       	$('.hoverli').hover(
       		function () {
-      		$('ul.file_menu').slideDown('medium');
+      		$('ul.file_menu').stop().slideDown('medium');
       		},
       		function () {
-      		$('ul.file_menu').stop().delay(200).slideUp('medium');
+      		$('ul.file_menu').delay(200).slideUp('medium');
       		});
       });
       
       </script>
 			<div class="category-holder">
-				<div class="category-intro"><%= t('main.category') %>:</div> <div class="hoverli">nazwa categorii
+				<div class="category-intro"><%= t('main.category') %>:</div> <div class="hoverli"><p><span></span>nazwa categorii</p>
 					<ul class="file_menu">
 				    <li><%= link_to "Ludzie są ludzmi", "#" %></li>
 				    <li><%= link_to "Notatki z podróży w czasie", "#" %></li>
