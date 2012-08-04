@@ -1,4 +1,7 @@
 en:
+  success: "Sukces!"
+  error: "Uwaga!"
+
   main:
     photographer: "fotograf"
     photo_own: "fotografia autorska"
