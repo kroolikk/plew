@@ -28,7 +28,9 @@ PlewDev1::Application.routes.draw do
   match "admin/enter" => "admin#enter", :as => :admin_enter
   match "admin/logout" => "admin#logout", :as => :admin_logout
 
+  match "galeria/:type" => "galleries#set_gallery_type", :as => :set_gallery_type
   resources :galleries
+  
   resources :pages
 
 

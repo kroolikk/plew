@@ -24,12 +24,13 @@ class PagesController < AdminController
 
   def create
     @page = Page.new(params[:page])
+    @gallery.owner = session[:owner]
 
-      if @page.save
-        redirect_to pages_url, notice: 'Dodano stronę informacyjną.'
-      else
-        render action: "new"
-      end
+    if @page.save
+      redirect_to pages_url, notice: 'Dodano stronę informacyjną.'
+    else
+      render action: "new"
+    end
   end
 
 
