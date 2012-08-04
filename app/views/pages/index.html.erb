@@ -1,0 +1,24 @@
+<h1>Strony informacyjne</h1>
+
+<table>
+  <tr>
+    <th>Strona</th>
+    <th>Początek treści</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pages.each do |page| %>
+  <tr>
+    <td><%= pages_label(page.label) %></td>
+    <td><%= truncate( strip_tags(page.content), :length => 50) %></td>
+    <td><%= link_to 'Edytuj', edit_page_path(page) %></td>
+    <td><%= link_to 'Usuń', page, confirm: 'Napewno usunać?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nowa strona', new_page_path %>

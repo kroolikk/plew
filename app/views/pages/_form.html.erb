@@ -1,0 +1,29 @@
+<%= form_for(@page) do |f| %>
+  <% if @page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+
+      <ul>
+      <% @page.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <%= f.hidden_field :owner, :value => (@page.owner || session[:owner]) %>
+  
+  <div class="field">
+    <%= f.label :label, "Strona" %><br />
+    <%= f.select :label, options_for_select(Page::PAGE_LABELS, @page.label) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content, "Treść" %><br />
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Zatwierdź" %>
+  </div>
+<% end %>

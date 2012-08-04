@@ -1,5 +1,24 @@
 PlewDev1::Application.routes.draw do
+
+
+  # chwilowa akcja
+  get "portfolio" => "home#portfolio", :as => :portfolio
+  
+
+
+  match 'zmien-jezyk/:locale' => 'application#set_locale', :as => :set_language
+  match 'zmien-uzytkownika/:owner' => 'admin#set_owner', :as => :set_owner
+  
   get "home/index"
+
+  match "admin" => "admin#index", :as => :admin
+  match "admin/login" => "admin#login", :as => :admin_login
+  match "admin/enter" => "admin#enter", :as => :admin_enter
+  match "admin/logout" => "admin#logout", :as => :admin_logout
+
+  resources :galleries
+  resources :pages
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -52,8 +71,6 @@ PlewDev1::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'home#index'
   
-	get "portfolio" => "home#portfolio", :as => :portfolio
-
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

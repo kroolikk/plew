@@ -1,0 +1,13 @@
+<div>
+  Wprowadź login i hasło, aby się zalogować:<br /><br />
+  <%= form_tag admin_enter_url do %>
+  
+  <%= label_tag "login:" %><br />
+  <%= text_field_tag :login %><br />
+  
+  <%= label_tag "password:" %><br />
+  <%= password_field_tag :password %><br />
+  <br />
+  <%= submit_tag "Zaloguj" %>
+  <% end %>
+</div>

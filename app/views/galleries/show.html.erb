@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @gallery.name %>
+</p>
+
+<p>
+  <b>Zdjęcia:</b><br/>
+  <% @gallery.photos.each do |photo| %>
+    <%= image_tag photo.photo.thumb.url %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_gallery_path(@gallery) %> |
+<%= link_to 'Back', galleries_path %>

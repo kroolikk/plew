@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A-prim - Panel administracyjny</title>
+    <%= stylesheet_link_tag "admin", :media => "all" %>
+    <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Questrial|Istok+Web&subset=latin,latin-ext" %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <% if alert.present? %>
+	<p class="flash-error" id="error"><%= alert %></p>
+	<script type="text/javascript">
+	  $(document).ready(function() {
+	    $("p.flash-error").delay(5000).fadeOut(5000);
+	  });
+	</script>
+      <% end %>
+      <% if notice.present?  %>
+	<p class="flash-notice" id="notice"><%= notice %></p>
+	<script type="text/javascript">
+	  $(document).ready(function() {
+	    $("p.flash-notice").delay(5000).fadeOut(5000);
+	  });
+	</script>
+      <% end %>
+      
+      
+      
+      <header>Panel Administracyjny<%= ' - ' if session[:owner].present? %><%= display_user(session[:owner])%></header>
+      <% if session[:admin_loggedin] %>
+	
+	<nav class="breadcrumbs">
+	  <div style="width: 25%; float: left;">
+	    Zalogowano jako: <strong><%= session[:account_type] %> | <%= link_to "wyloguj", admin_logout_url %></strong>
+	    
+	    <span class="next-sep">&nbsp;</span>
+	  </div>
+	  <%= link_to 'pl', set_language_url(:locale => 'pl'), :class => "#{'lang_selected' if session[:locale] == 'pl'}" %> |
+	  <%= link_to 'en', set_language_url(:locale => 'en'), :class => "#{'lang_selected' if session[:locale] == 'en'}" %> |
+	  ---
+	  <%= link_to display_user("os1"), set_owner_url(:owner => 'os1') %> ---
+	  <%= link_to display_user("os2"), set_owner_url(:owner => 'os2') %> ---
+	  <%= link_to display_user("os3"), set_owner_url(:owner => 'os3') %> ---
+	</nav>
+	<div class="admin-content">
+	  <aside class="main-nav">
+	    <ul>
+	      <% if session[:owner].present? %>
+		<li><%= link_to "Strony informacyjne", pages_url %></li>
+		<li><%= link_to "Albumy", galleries_url %></li>
+	      <% end %>
+	    </ul>
+	  </aside>
+	  
+      <% end %>  
+      <div class="page-content">
+	<%= yield %>
+      </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </body>
+</html>
