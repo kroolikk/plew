@@ -47,8 +47,14 @@ body {
 	background: #3e3e3e url(/assets/bg.png);
 	font-family: 'Voces', helvetica, Arial, sans-serif;
 }
-a {text-decoration: none;}
-h1{
+a {
+	text-decoration: none;
+	color: #bababa;
+}
+a:hover {
+	color: #fff;
+}
+header h1{
 	color: #bababa;
 	font-family: 'Exo', helvetica, Arial, sans-serif;
 	font-size: 48px;
@@ -58,7 +64,7 @@ h1{
 	float: left;
 	position: relative;
 }
-h1 a{
+header h1 a{
 	color: #bababa;
 	font-family: 'Exo', helvetica, Arial, sans-serif;
 	font-size: 48px;
@@ -67,7 +73,10 @@ h1 a{
 	float: left;
 	position: relative;
 }
-h1 span {
+header h1 a:hover {
+	color: #bababa;
+}
+header h1 span {
 	color: #272727;
 	font-size: 16px;
 	text-shadow: 1px 1px 1px #4e4e4e;
@@ -258,11 +267,53 @@ margin: 5px 0px;
 .nivo-controlNav a.active {
 	font-weight:bold;
 }
+.nivo-control:hover, .nivo-control.active {
+	opacity:1.0;
+	filter:alpha(opacity=100);
+}
+.nivo-control {
+	opacity:0.6;
+	filter:alpha(opacity=60);
+}
+.category-holder {
+	margin-top: 20px;
+	height: 30px;
+	text-transform: uppercase;
+}
+.hoverli {
+	position: relative;
+	cursor: pointer;
+	color: #fff;
+	float: left;
+}
+.category-holder ul.file_menu {
+	z-index: 999;
+	background: #222;
+	display: none;
+	position: absolute;
+	width: 500px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-top-right-radius: 10px;
+	padding: 5px;
+}
+.category-holder ul.file_menu li {
+	width: 230px;
+	float: left;
+	font-size: 11px;
+	list-style: none;
+	padding: 5px 0px 5px 15px;
+}
+.category-intro {
+	margin-right: 10px;
+	float: left;
+}
 
 
 
 
-@media all and (max-width: 1100px) {
+
+@media all and (max-width: 1118px) {
 	header h1 {
 		width: 374px;
 		text-align: center;

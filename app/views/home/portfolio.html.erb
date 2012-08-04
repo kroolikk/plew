@@ -1,5 +1,34 @@
 		<div class="gallery-holder">
-			<div class="album-desc">Tutaj opis Albumu, volutpat, leo urna posuere tortor, blandit fringilla nunc diam et nisl. Aenean porta consequat pulvinar. Nunc convallis cursus libero ut lobortis. Vestibulum rhoncus leo non metus vulputate tempor. Proin in sem eget eros dignissim imperdiet eu lobortis mi.</div>
+      <script>
+      $(document).ready(function () {
+      	$('.hoverli').hover(
+      		function () {
+      		$('ul.file_menu').slideDown('medium');
+      		},
+      		function () {
+      		$('ul.file_menu').stop().slideUp('medium');
+      		});
+      });
+      
+      </script>
+			<div class="category-holder">
+				<div class="category-intro"><%= t('main.category') %>:</div> <div class="hoverli">nazwa categorii
+					<ul class="file_menu">
+				    <li><%= link_to "Ludzie są ludzmi", "#" %></li>
+				    <li><%= link_to "Notatki z podróży w czasie", "#" %></li>
+				    <li><%= link_to "abcdefghijk", "#" %></li>
+				    <li><%= link_to "abcdefghijk", "#" %></li>
+				    <li><%= link_to "abcdefghijk", "#" %></li>
+				    <li><%= link_to "abcdefghijk", "#" %></li>
+				    <li><%= link_to "abcdefghijk", "#" %></li>
+				    <li><%= link_to "abcdefghijk", "#" %></li>
+		      </ul>
+		      </div>
+        
+
+			</div>
+		
+			<div class="clear album-desc">Tutaj opis Albumu, volutpat, leo urna posuere tortor, blandit fringilla nunc diam et nisl. Aenean porta consequat pulvinar. Nunc convallis cursus libero ut lobortis. Vestibulum rhoncus leo non metus vulputate tempor. Proin in sem eget eros dignissim imperdiet eu lobortis mi.</div>
 			<p class="photo-title">Tytuł zdjęcia</p>
 			<div class="slider-wrapper">
 				<div id="slider" class="nivoSlider">
