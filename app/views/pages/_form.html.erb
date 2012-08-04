@@ -12,8 +12,6 @@
   <% end %>
 
 
-  <%= f.hidden_field :owner, :value => (@page.owner || session[:owner]) %>
-  
   <div class="field">
     <%= f.label :label, "Strona" %><br />
     <%= f.select :label, options_for_select(Page::PAGE_LABELS, @page.label) %>

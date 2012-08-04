@@ -1,9 +1,19 @@
 # -*- encoding: utf-8 -*-
 class GalleriesController < AdminController
+  
+  
+  def set_gallery_type
+    if params[:type].present?
+      session[:type] = params[:type]
+      redirect_to galleries_url
+    else
+      admin_url
+    end
+  end
 
 
   def index
-    @galleries = Gallery.where(:owner => session[:owner])
+    @galleries = Gallery.where(:owner => session[:owner], :gal_type => session[:type])
   end
 
 
@@ -24,6 +34,8 @@ class GalleriesController < AdminController
 
   def create
     @gallery = Gallery.new(params[:gallery])
+    @gallery.owner = session[:owner]
+    @gallery.gal_type = session[:type]
     
     if @gallery.save
       redirect_to galleries_url, notice: 'Galeria utworzona.'

@@ -27,9 +27,9 @@
 	  <h1><%= link_to display_user(session[:section]), auth_gallery_url %><span><%= t('main.photographer') %></span></h1>
 	  
 	  <nav><!-- start nav, będą 3 takie same navigacje ale osobne dla każdego z gości -->
-	    <a href=""><%= link_to t('main.photo_own') %></a>
-	    <a href=""><%= link_to t('main.photo_com') %></a>
-	    <a href=""><%= link_to t('main.contact') %></a>
+	    <%= link_to t('main.photo_own'), auth_gallery_url %>
+	    <%= link_to t('main.photo_com'), com_gallery_url %>
+	    <%= link_to t('main.contact') %>
 	  </nav>
 	  <div class="clear seperator"></div>
 	<% end %>

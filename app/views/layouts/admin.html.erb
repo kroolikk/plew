@@ -48,7 +48,8 @@
 	    <ul>
 	      <% if session[:owner].present? %>
 		<li><%= link_to "Strony informacyjne", pages_url %></li>
-		<li><%= link_to "Albumy", galleries_url %></li>
+		<li><%= link_to "Albumy autorskie", set_gallery_type_url(:type => 'auth') %></li>
+		<li><%= link_to "Albumy komercyjne", set_gallery_type_url(:type => 'com') %></li>
 	      <% end %>
 	    </ul>
 	  </aside>
