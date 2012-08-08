@@ -3,7 +3,7 @@ class PagesController < AdminController
 
 
   def index
-    @pages = Page.where(:owner => session[:owner])
+    @pages = Page.where(:section => session[:section])
   end
 
 
@@ -24,7 +24,7 @@ class PagesController < AdminController
 
   def create
     @page = Page.new(params[:page])
-    @gallery.owner = session[:owner]
+    @page.section = session[:section]
 
     if @page.save
       redirect_to pages_url, notice: 'Dodano stronę informacyjną.'

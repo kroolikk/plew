@@ -1,2 +1,10 @@
 <h1>FrontSection#auth_gallery</h1>
 <p>Find me in app/views/front_section/auth_gallery.html.erb</p>
+<br/>
+<% @galleries.each do |gallery| %>
+  <% gallery.photos.each do |photo| %>
+    <%= image_tag photo.photo.thumb.url %>
+  <% end %>
+  <br/>
+  <br/>
+<% end %>

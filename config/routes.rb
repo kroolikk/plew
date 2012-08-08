@@ -8,18 +8,14 @@ PlewDev1::Application.routes.draw do
   
 
 
-  
-  match "wybierz-dzial/:section" => "front_section#select_section", :as => :select_section
-  match "wybierz-dzial" => "front_section#select_section", :as => :select_sections
-
-  match "fotografia-autorska" => "front_section#auth_gallery", :as => :auth_gallery
-  match "fotografia-komercyjna" => "front_section#com_gallery", :as => :com_gallery
-
+  match "/:section/fotografia-autorska" => "front_section#auth_gallery", :as => :auth_gallery
+  match "/:section/fotografia-komercyjna" => "front_section#com_gallery", :as => :com_gallery
+  match "/:section/info" => "front_section#info", :as => :info
 
 
 
   match 'zmien-jezyk/:locale' => 'application#set_locale', :as => :set_language
-  match 'zmien-uzytkownika/:owner' => 'admin#set_owner', :as => :set_owner
+  match 'zmien-uzytkownika/:section' => 'admin#set_section', :as => :set_section
   
   get "home/index"
 

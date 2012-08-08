@@ -24,12 +24,12 @@
       <header>
 	
 	<% if params[:controller] != 'home' || params[:action] != 'index' %>
-	  <h1><%= link_to display_user(session[:section]), auth_gallery_url %><span><%= t('main.photographer') %></span></h1>
+	  <h1><%= link_to display_user(params[:section]), auth_gallery_url %><span><%= t('main.photographer') %></span></h1>
 	  
-	  <nav><!-- start nav, będą 3 takie same navigacje ale osobne dla każdego z gości -->
-	    <%= link_to t('main.photo_own'), auth_gallery_url %>
-	    <%= link_to t('main.photo_com'), com_gallery_url %>
-	    <%= link_to t('main.contact') %>
+	  <nav>
+	    <%= link_to t('main.photo_own'), auth_gallery_url(:section => params[:section]) %>
+	    <%= link_to t('main.photo_com'), com_gallery_url(:section => params[:section]) %>
+	    <%= link_to t('main.contact'), info_url %>
 	  </nav>
 	  <div class="clear seperator"></div>
 	<% end %>
@@ -37,7 +37,7 @@
       </header>
       <%= yield %>
 
-      <%= link_to 'SG', select_sections_url %>
+      <%= link_to 'SG', root_url %>
     </div>
   </body>
 </html>

@@ -47,6 +47,8 @@ PlewDev1::Application.configure do
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
+  config.assets.precompile += %w( admin.css tiny_mce/* application_jquery.js jquery_ujs.js jquery.js )
+
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false

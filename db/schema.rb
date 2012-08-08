@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20120804151030) do
 
   create_table "galleries", :force => true do |t|
-    t.string   "owner"
+    t.string   "section"
     t.string   "gal_type"
     t.string   "label"
     t.string   "title"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20120804151030) do
   end
 
   create_table "pages", :force => true do |t|
-    t.string   "owner"
+    t.string   "section"
     t.string   "label"
     t.string   "title"
     t.string   "content"

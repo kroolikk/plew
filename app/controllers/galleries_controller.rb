@@ -13,7 +13,7 @@ class GalleriesController < AdminController
 
 
   def index
-    @galleries = Gallery.where(:owner => session[:owner], :gal_type => session[:type])
+    @galleries = Gallery.where(:section => session[:section], :gal_type => session[:type])
   end
 
 
@@ -34,7 +34,7 @@ class GalleriesController < AdminController
 
   def create
     @gallery = Gallery.new(params[:gallery])
-    @gallery.owner = session[:owner]
+    @gallery.section = session[:section]
     @gallery.gal_type = session[:type]
     
     if @gallery.save

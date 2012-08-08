@@ -4,9 +4,9 @@ module ApplicationHelper
   
   def display_user(user)
     case user
-    when "os1" then "osoba1"
-    when "os2" then "osoba2"
-    when "os3" then "osoba3"
+    when SECTION[0] then "osoba1"
+    when SECTION[1] then "osoba2"
+    when SECTION[2] then "osoba3"
     else "Brak etykiety"
     end
   end

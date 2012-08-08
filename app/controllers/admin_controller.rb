@@ -6,10 +6,10 @@ class AdminController < ApplicationController
   before_filter :check_admin_loggedin, :except => [:login, :enter]
 
 
-  def set_owner
-    if params[:owner].present?
-      session[:owner] = params[:owner]
-      redirect_to (request.referer.present? ? request.referer : admin_url), notice: "Użytkownik zmieniony. Obecny użytkownik: #{display_user(session[:owner])}"
+  def set_section
+    if params[:section].present?
+      session[:section] = params[:section]
+      redirect_to (request.referer.present? ? request.referer : admin_url), notice: "Użytkownik zmieniony. Obecny użytkownik: #{display_user(session[:section])}"
     else
       redirect_to (request.referer.present? ? request.referer : admin_url), alert: "Nie udało się zmienić użytkownika."
     end

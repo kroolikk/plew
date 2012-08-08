@@ -3,6 +3,9 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 
 SECTION = ['os1', 'os2', 'os3']
+GAL_TYPE = ['auth', 'com']
+PAGE_LABELS = [["Recenzje", "review"],
+               ["Kontakt", "contact"]]
 
 
 if defined?(Bundler)
@@ -14,6 +17,9 @@ end
 
 module PlewDev1
   class Application < Rails::Application
+    
+    # Rails.env = ActiveSupport::StringInquirer.new('production')
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

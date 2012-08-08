@@ -4,8 +4,19 @@
     <title>A-prim - Panel administracyjny</title>
     <%= stylesheet_link_tag "admin", :media => "all" %>
     <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Questrial|Istok+Web&subset=latin,latin-ext" %>
-    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'jquery.js', 'jquery_ujs.js', 'application_jquery.js' %>
     <%= csrf_meta_tags %>
+
+    <%= javascript_include_tag "tiny_mce/tiny_mce.js" %>
+    <script type="text/javascript">
+      tinyMCE.init({
+        mode : "textareas",
+        editor_selector : "mceEditor",
+        plugins: "media",
+        media_strict: false 
+      });
+    </script>
+       
   </head>
   <body>
     <div class="main-wrapper">
@@ -28,7 +39,7 @@
       
       
       
-      <header>Panel Administracyjny<%= ' - ' if session[:owner].present? %><%= display_user(session[:owner])%></header>
+      <header>Panel Administracyjny<%= ' - ' if session[:section].present? %><%= display_user(session[:section])%></header>
       <% if session[:admin_loggedin] %>
 	
 	<nav class="breadcrumbs">
@@ -40,17 +51,17 @@
 	  <%= link_to 'pl', set_language_url(:locale => 'pl'), :class => "#{'lang_selected' if session[:locale] == 'pl'}" %> |
 	  <%= link_to 'en', set_language_url(:locale => 'en'), :class => "#{'lang_selected' if session[:locale] == 'en'}" %> |
 	  ---
-	  <%= link_to display_user("os1"), set_owner_url(:owner => 'os1') %> ---
-	  <%= link_to display_user("os2"), set_owner_url(:owner => 'os2') %> ---
-	  <%= link_to display_user("os3"), set_owner_url(:owner => 'os3') %> ---
+	  <%= link_to display_user("os1"), set_section_url(:section => SECTION[0]) %> ---
+	  <%= link_to display_user("os2"), set_section_url(:section => SECTION[1]) %> ---
+	  <%= link_to display_user("os3"), set_section_url(:section => SECTION[2]) %> ---
 	</nav>
 	<div class="admin-content">
 	  <aside class="main-nav">
 	    <ul>
-	      <% if session[:owner].present? %>
+	      <% if session[:section].present? %>
 		<li><%= link_to "Strony informacyjne", pages_url %></li>
-		<li><%= link_to "Albumy autorskie", set_gallery_type_url(:type => 'auth') %></li>
-		<li><%= link_to "Albumy komercyjne", set_gallery_type_url(:type => 'com') %></li>
+		<li><%= link_to "Albumy autorskie", set_gallery_type_url(:type => GAL_TYPE[0]) %></li>
+		<li><%= link_to "Albumy komercyjne", set_gallery_type_url(:type => GAL_TYPE[1]) %></li>
 	      <% end %>
 	    </ul>
 	  </aside>
