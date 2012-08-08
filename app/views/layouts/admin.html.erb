@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>A-prim - Panel administracyjny</title>
+    <title>Plewiński.com Panel administracyjny</title>
     <%= stylesheet_link_tag "admin", :media => "all" %>
     <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Questrial|Istok+Web&subset=latin,latin-ext" %>
     <%= javascript_include_tag 'jquery.js', 'jquery_ujs.js', 'application_jquery.js' %>
@@ -19,41 +19,47 @@
        
   </head>
   <body>
-    <div class="main-wrapper">
-      <% if alert.present? %>
-	<p class="flash-error" id="error"><%= alert %></p>
+  
+  <% if alert.present? %>
+	<div class="flash-error message" id="error"><span><%= t('error') %></span><br><%= alert %></div>
 	<script type="text/javascript">
 	  $(document).ready(function() {
-	    $("p.flash-error").delay(5000).fadeOut(5000);
+	    $("div.flash-error").delay(5000).slideUp('medium');
 	  });
 	</script>
       <% end %>
       <% if notice.present?  %>
-	<p class="flash-notice" id="notice"><%= notice %></p>
+	<div class="flash-notice message" id="notice"><span><%= t('success') %></span><br><%= notice %></div>
 	<script type="text/javascript">
 	  $(document).ready(function() {
-	    $("p.flash-notice").delay(5000).fadeOut(5000);
+	    $("div.flash-notice").delay(5000).slideUp('medium');
 	  });
 	</script>
       <% end %>
-      
-      
-      
-      <header>Panel Administracyjny<%= ' - ' if session[:section].present? %><%= display_user(session[:section])%></header>
-      <% if session[:admin_loggedin] %>
-	
+     
+    <div class="main-wrapper">
+      <header><h1>Panel Administracyjny<%= ' - ' if session[:section].present? %><%= display_user(session[:section])%></h1>
+        <br><br>
+	<%= link_to image_tag('pl.png'), set_language_url(:locale => 'pl'), :class => "#{'lang_selected' if session[:locale] == 'pl'}" %> |
+	<%= link_to image_tag('gb.png'), set_language_url(:locale => 'en'), :class => "last-flag #{'lang_selected' if session[:locale] == 'en'}" %>  -
+	<% if session[:locale] == 'pl' %>
+	  Modyfikujesz teraz <strong>Polskie</strong> treści
+	<% else %>
+	  Modyfikujesz teraz <strong>Angielskie</strong> treści
+	<% end %>
+      </header>
+	  
+
+      <% if session[:admin_loggedin] %>	
 	<nav class="breadcrumbs">
-	  <div style="width: 25%; float: left;">
+	  <div style="min-width: 290px; float: left;">
 	    Zalogowano jako: <strong><%= session[:account_type] %> | <%= link_to "wyloguj", admin_logout_url %></strong>
 	    
 	    <span class="next-sep">&nbsp;</span>
 	  </div>
-	  <%= link_to 'pl', set_language_url(:locale => 'pl'), :class => "#{'lang_selected' if session[:locale] == 'pl'}" %> |
-	  <%= link_to 'en', set_language_url(:locale => 'en'), :class => "#{'lang_selected' if session[:locale] == 'en'}" %> |
-	  ---
-	  <%= link_to display_user("os1"), set_section_url(:section => SECTION[0]) %> ---
-	  <%= link_to display_user("os2"), set_section_url(:section => SECTION[1]) %> ---
-	  <%= link_to display_user("os3"), set_section_url(:section => SECTION[2]) %> ---
+	  <%= link_to display_user(SECTION[0]), set_section_url(:section => SECTION[0]) %> ---
+	  <%= link_to display_user(SECTION[1]), set_section_url(:section => SECTION[1]) %> ---
+	  <%= link_to display_user(SECTION[2]), set_section_url(:section => SECTION[2]) %> ---
 	</nav>
 	<div class="admin-content">
 	  <aside class="main-nav">

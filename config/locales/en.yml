@@ -1,4 +1,7 @@
 en:
+  success: "Success!"
+  error: "Warning!"
+
   main:
     photographer: "photography"
     photo_own: "personal work"
