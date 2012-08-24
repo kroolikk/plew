@@ -1,4 +1,6 @@
 <div class="fields">
+  <%= f.label :p_title, "Tytuł" %>
+  <%= f.text_field :p_title %><br />
   <%= f.label :photo, "Plik" %>
   <%= f.file_field :photo %>
   <%= link_to_remove_fields "usuń", f %><br />

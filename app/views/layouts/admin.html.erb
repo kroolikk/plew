@@ -16,66 +16,67 @@
         media_strict: false 
       });
     </script>
-       
   </head>
   <body>
-  
-  <% if alert.present? %>
-	<div class="flash-error message" id="error"><span><%= t('error') %></span><br><%= alert %></div>
-	<script type="text/javascript">
-	  $(document).ready(function() {
-	    $("div.flash-error").delay(5000).slideUp('medium');
-	  });
-	</script>
-      <% end %>
-      <% if notice.present?  %>
-	<div class="flash-notice message" id="notice"><span><%= t('success') %></span><br><%= notice %></div>
-	<script type="text/javascript">
-	  $(document).ready(function() {
-	    $("div.flash-notice").delay(5000).slideUp('medium');
-	  });
-	</script>
-      <% end %>
-     
+    
+    <% if alert.present? %>
+    <div class="flash-error message" id="error"><span><%= t('error') %></span><br><%= alert %></div>
+    <script type="text/javascript">
+      $(document).ready(function() {
+      $("div.flash-error").delay(5000).slideUp('medium');
+      });
+    </script>
+    <% end %>
+    <% if notice.present?  %>
+    <div class="flash-notice message" id="notice"><span><%= t('success') %></span><br><%= notice %></div>
+    <script type="text/javascript">
+      $(document).ready(function() {
+      $("div.flash-notice").delay(5000).slideUp('medium');
+      });
+    </script>
+    <% end %>
+    
     <div class="main-wrapper">
       <header><h1>Panel Administracyjny<%= ' - ' if session[:section].present? %><%= display_user(session[:section])%></h1>
         <br><br>
-	<%= link_to image_tag('pl.png'), set_language_url(:locale => 'pl'), :class => "#{'lang_selected' if session[:locale] == 'pl'}" %> |
-	<%= link_to image_tag('gb.png'), set_language_url(:locale => 'en'), :class => "last-flag #{'lang_selected' if session[:locale] == 'en'}" %>  -
-	<% if session[:locale] == 'pl' %>
-	  Modyfikujesz teraz <strong>Polskie</strong> treści
-	<% else %>
-	  Modyfikujesz teraz <strong>Angielskie</strong> treści
+	<% if session[:admin_loggedin] %>
+	  <%= link_to image_tag('pl.png'), set_language_url(:locale => 'pl'), :class => "#{'lang_selected' if session[:locale] == 'pl'}" %> |
+	  <%= link_to image_tag('gb.png'), set_language_url(:locale => 'en'), :class => "last-flag #{'lang_selected' if session[:locale] == 'en'}" %>  -
+	  <% if session[:locale] == 'pl' %>
+	    Modyfikujesz teraz <strong>Polskie</strong> treści
+	  <% else %>
+	    Modyfikujesz teraz <strong>Angielskie</strong> treści
+	  <% end %>
 	<% end %>
       </header>
-	  
+      
 
       <% if session[:admin_loggedin] %>	
-	<nav class="breadcrumbs">
-	  <div style="min-width: 290px; float: left;">
-	    Zalogowano jako: <strong><%= session[:account_type] %> | <%= link_to "wyloguj", admin_logout_url %></strong>
-	    
-	    <span class="next-sep">&nbsp;</span>
-	  </div>
-	  <%= link_to display_user(SECTION[0]), set_section_url(:section => SECTION[0]) %> ---
-	  <%= link_to display_user(SECTION[1]), set_section_url(:section => SECTION[1]) %> ---
-	  <%= link_to display_user(SECTION[2]), set_section_url(:section => SECTION[2]) %> ---
-	</nav>
-	<div class="admin-content">
-	  <aside class="main-nav">
-	    <ul>
-	      <% if session[:section].present? %>
-		<li><%= link_to "Strony informacyjne", pages_url %></li>
-		<li><%= link_to "Albumy autorskie", set_gallery_type_url(:type => GAL_TYPE[0]) %></li>
-		<li><%= link_to "Albumy komercyjne", set_gallery_type_url(:type => GAL_TYPE[1]) %></li>
-	      <% end %>
-	    </ul>
-	  </aside>
+      <nav class="breadcrumbs">
+	<div style="min-width: 290px; float: left;">
+	  Zalogowano jako: <strong><%= session[:account_type] %> | <%= link_to "wyloguj", admin_logout_url %></strong>
 	  
-      <% end %>  
-      <div class="page-content">
-	<%= yield %>
-      </div>
+	  <span class="next-sep">&nbsp;</span>
+	</div>
+	<%= link_to display_user(SECTION[0]), set_section_url(:section => SECTION[0]) %> ---
+	<%= link_to display_user(SECTION[1]), set_section_url(:section => SECTION[1]) %> ---
+	<%= link_to display_user(SECTION[2]), set_section_url(:section => SECTION[2]) %> ---
+      </nav>
+      <div class="admin-content">
+	<aside class="main-nav">
+	  <ul>
+	    <% if session[:section].present? %>
+	    <li><%= link_to "Strony informacyjne", pages_url %></li>
+	    <li><%= link_to "Albumy autorskie", set_gallery_type_url(:type => GAL_TYPE[0]) %></li>
+	    <li><%= link_to "Albumy komercyjne", set_gallery_type_url(:type => GAL_TYPE[1]) %></li>
+	    <% end %>
+	  </ul>
+	</aside>
+	
+	<% end %>  
+	<div class="page-content">
+	  <%= yield %>
+	</div>
       </div>
       <div class="clear"></div>
     </div>
