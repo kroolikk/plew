@@ -2,20 +2,28 @@ class FrontSectionController < ApplicationController
 
 
   def auth_gallery
-    if params[:section].present?
-
+    if params[:section].present?      
       @galleries = Gallery.where(:section => params[:section], :gal_type => GAL_TYPE[0])
-
+      
+      if params[:id].present?
+        @selected_gallery = Gallery.find_by_id(params[:id])
+      else
+        @selected_gallery = @galleries.first
+      end
     else
       redirect_to root_url
     end    
   end
 
   def com_gallery
-    if params[:section].present?
-      
+    if params[:section].present?      
       @galleries = Gallery.where(:section => params[:section], :gal_type => GAL_TYPE[1])
       
+      if params[:id].present?
+        @selected_gallery = Gallery.find_by_id(params[:id])
+      else
+        @selected_gallery = @galleries.first
+      end
     else
       redirect_to root_url
     end        

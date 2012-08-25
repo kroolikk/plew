@@ -4,17 +4,25 @@
     <meta charset="utf-8">
     <title>Plewiński.com - Fotograf</title>
     <%= stylesheet_link_tag    "style.css" %>
-    <%= javascript_include_tag "jquery", "init", "jquery.colorbox-min", "jquery.nivo.slider" %>
+
+    <%= javascript_include_tag "jquery.js" %>
+    <%= javascript_include_tag "init.js" %>
+    <%= javascript_include_tag "jquery.colorbox-min.js" %>
+    <%#= javascript_include_tag "http://www.jacklmoore.com/colorbox/colorbox/jquery.colorbox.js" %>    
+
+    <%= javascript_include_tag "jquery.nivo.slider.js" %>
+
+    <%#= javascript_include_tag "application" %>
+    
     <link href='http://fonts.googleapis.com/css?family=Voces|Exo:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <%= link_to 'SG', root_url %>
     <div class="main-wrapper">
       <header>
-	
 	<% if params[:controller] != 'home' || params[:action] != 'index' %>
 	  <h1><%= link_to display_user(params[:section]), auth_gallery_url %><span><%= t('main.photographer') %></span></h1>
-	  
 	  <nav>
 	    <%= link_to t('main.photo_own'), auth_gallery_url(:section => params[:section]) %>
 	    <%= link_to t('main.photo_com'), com_gallery_url(:section => params[:section]) %>
@@ -22,11 +30,10 @@
 	  </nav>
 	  <div class="clear seperator"></div>
 	<% end %>
-	  
       </header>
+
       <%= yield %>
 
-      <%= link_to 'SG', root_url %>
     </div>
   </body>
 </html>

@@ -1,10 +1,73 @@
-<h1>FrontSection#auth_gallery</h1>
-<p>Find me in app/views/front_section/auth_gallery.html.erb</p>
-<br/>
-<% @galleries.each do |gallery| %>
-  <% gallery.photos.each do |photo| %>
-    <%= image_tag photo.photo.thumb.url %>
+<div class="gallery-holder">
+  <script>
+    $(document).ready(function () {
+      var timer;
+    
+      $('.hoverli').mouseenter(function () {
+        if(timer) {
+          clearTimeout(timer);
+          timer = null
+        }
+        timer = setTimeout(function() {
+          $('ul.file_menu').slideDown('medium');
+        }, 500);
+      });
+
+      $('.hoverli').mouseleave(function () {
+        $('ul.file_menu').delay(200).slideUp('medium');
+      });
+
+    
+    <% if false %>
+      $('.hoverli').hover(
+        function () {
+          $('ul.file_menu').slideDown('medium');
+        },
+        function () {
+          $('ul.file_menu').delay(200).slideUp('medium');
+        }
+      );
+    <% end %>  
+    });    
+  </script>
+
+  <h1>Autorskie</h1>
+  
+  <div class="category-holder">
+    <div class="category-intro"><%= t('main.category') %>:</div>
+    <div class="hoverli">
+      <p><span></span><%= @selected_gallery.title %></p>
+      <ul class="file_menu">
+	<% @galleries.each do |gallery| %>
+	  <li><%= link_to gallery.title, auth_gallery_specific_url(:section => params[:section], :id => gallery) %></li>
+	<% end %>	
+      </ul>
+    </div>
+  </div>
+
+  
+  <% if @selected_gallery.present? %>
+    <div class="clear album-desc">
+      <%= @selected_gallery.description %>
+    </div>
+    
+    <p class="photo-title"></p>
+    <% @selected_gallery.photos.each do |photo| %>
+      <div id="<%= "caption_#{photo.id}" %>" class="nivo-html-caption">
+	<%= photo.p_title %>
+      </div>
+    <% end %>
+    
+    <div class="slider-wrapper">
+      <div id="slider" class="nivoSlider">
+	<% @selected_gallery.photos.each do |photo| %>
+	  <%= link_to( image_tag(photo.photo.url, 'data-thumb' => photo.photo.thumb.url, :alt => '', :title => "#caption_#{photo.id}"), photo.photo.url) %>
+	<% end %>
+      </div><!-- odpalacz coloboxa wewnatrz nivoslidera, musi być tu -->
+      <script>
+	jQuery('a.gallery').colorbox();
+      </script>
+    </div>
+    
   <% end %>
-  <br/>
-  <br/>
-<% end %>
+</div>

@@ -15,7 +15,7 @@
     <td><%= gallery.title %></td>
     <td>
       <% gallery.photos.each do |photo| %>
-	<%= image_tag photo.photo.thumb.url %>
+	<%= image_tag photo.photo.thumb.url, :title => photo.p_title, :alt => photo.p_title %>
       <% end %>
     </td>
     <td><%= link_to 'Edytuj', edit_gallery_path(gallery) %> <%= link_to 'Usuń', gallery, confirm: 'Czy na pewno chcesz usunąć galerię? ', method: :delete %></td>

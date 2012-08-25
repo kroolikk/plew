@@ -9,7 +9,9 @@ PlewDev1::Application.routes.draw do
 
 
   match "/:section/fotografia-autorska" => "front_section#auth_gallery", :as => :auth_gallery
+  match "/:section/fotografia-autorska/:id" => "front_section#auth_gallery", :as => :auth_gallery_specific
   match "/:section/fotografia-komercyjna" => "front_section#com_gallery", :as => :com_gallery
+  match "/:section/fotografia-komercyjna/:id" => "front_section#com_gallery", :as => :com_gallery_specific
   match "/:section/info" => "front_section#info", :as => :info
 
 
