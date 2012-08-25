@@ -21,8 +21,13 @@
     <%= link_to 'SG', root_url %>
     <div class="main-wrapper">
       <header>
-	<% if params[:controller] != 'home' || params[:action] != 'index' %>
+	<% if params[:controller] == 'home' || params[:action] == 'index' %>
+	  <h1><%= link_to "www.plewinski.com", root_path %></h1>
+	  	  <div class="clear seperator"></div>
+	  <% else %>
 	  <h1><%= link_to display_user(params[:section]), auth_gallery_url %><span><%= t('main.photographer') %></span></h1>
+	  <% end %>
+	  <% if params[:controller] != 'home' || params[:action] != 'index' %>
 	  <nav>
 	    <%= link_to t('main.photo_own'), auth_gallery_url(:section => params[:section]) %>
 	    <%= link_to t('main.photo_com'), com_gallery_url(:section => params[:section]) %>

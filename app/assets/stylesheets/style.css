@@ -117,7 +117,7 @@ nav a {
 	margin: 0 auto;
 }
 .slider-wrapper {
-margin: 5px 0px;
+	margin: 5px 0px;
 }
 .nivoSlider {
     position:relative;
@@ -307,7 +307,27 @@ list-style: none;
 #tabs li, #tabs li a {
 float: left;
 }
-
+.film-holder {
+	margin-top: 50px;
+}
+.film-holder a{
+	position: relative;
+	margin-right: -5px;
+	padding: 0; 
+}
+.film-holder a img{
+	margin: 0;
+	padding: 0; 
+	max-width: 100%;
+}
+.film-holder span {
+	font-size: 30px;
+	left: 40%;
+	bottom: 142px;
+	position: absolute;
+	font-family: 'Exo', helvetica, Arial, sans-serif;
+	font-weight: bold;
+}
 
 @media all and (max-width: 1118px) {
 	header h1 {
@@ -323,9 +343,10 @@ float: left;
 	margin-bottom: 20px;
 	}
 }
-
+/* tu nie dopisuj cssów */
 @media all and (max-width: 620px) {
 	header h1 {	width: 268px; }
 	header h1 a {font-size: 36px;}
 	nav a {display: block;}
 }
+/* tu nie dopisuj cssów */
