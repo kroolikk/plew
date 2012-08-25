@@ -4,19 +4,8 @@
     <meta charset="utf-8">
     <title>Plewiński.com - Fotograf</title>
     <%= stylesheet_link_tag    "style.css" %>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "jquery", "init", "jquery.colorbox-min", "jquery.nivo.slider" %>
     <link href='http://fonts.googleapis.com/css?family=Voces|Exo:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <script type="text/javascript">
-      $(window).load(function() {
-        $('#slider').nivoSlider({
-          effect: 'fade',
-          controlNavThumbs:true,
-          manualAdvance: true,
-          prevText: '',
-          nextText: ''
-        });
-      });
-    </script>
     <%= csrf_meta_tags %>
   </head>
   <body>
