@@ -318,12 +318,12 @@ float: left;
 .film-holder a img{
 	margin: 0;
 	padding: 0; 
-	max-width: 100%;
+	max-width: 33.3%;
 }
 .film-holder span {
 	font-size: 30px;
 	left: 40%;
-	bottom: 142px;
+	bottom: 131px;
 	position: absolute;
 	font-family: 'Exo', helvetica, Arial, sans-serif;
 	font-weight: bold;
@@ -342,11 +342,19 @@ float: left;
 	margin-top: 50px;
 	margin-bottom: 20px;
 	}
+	.film-holder span {
+		bottom: 80px;
+	}
 }
 /* tu nie dopisuj cssów */
 @media all and (max-width: 620px) {
 	header h1 {	width: 268px; }
 	header h1 a {font-size: 36px;}
 	nav a {display: block;}
+		.film-holder span {
+		left: 30%;
+		bottom: 60px;
+		font-size: 20px;
+	}
 }
 /* tu nie dopisuj cssów */

@@ -1,6 +1,9 @@
 <div>
   Zalogowałeś się do panelu administracyjnego.<br/>
-  <%= link_to display_user("os1"), set_section_url(:section => SECTION[0]) %><br/>
-  <%= link_to display_user("os2"), set_section_url(:section => SECTION[1]) %><br/>
-  <%= link_to display_user("os3"), set_section_url(:section => SECTION[2]) %><br/>
+  <br>
+  Proszę wybrać użytkownika:
+  <ul>
+  	<li><%= link_to display_user("os1"), set_section_url(:section => SECTION[0]) %><br/></li>
+  	<li><%= link_to display_user("os2"), set_section_url(:section => SECTION[1]) %><br/></li>
+  	<li><%= link_to display_user("os3"), set_section_url(:section => SECTION[2]) %><br/></li>
 </div>
