@@ -24,7 +24,7 @@
   <div class="category-holder">
     <div class="category-intro"><%= t('main.category') %>:</div>
     <div class="hoverli">
-      <p><span></span><%= @selected_gallery.title %></p>
+      <p><span></span><%= @selected_gallery.title if @selected_gallery.present?  %></p>
       <ul class="file_menu">
 	<% @galleries.each do |gallery| %>
 	  <li><%= link_to gallery.title, com_gallery_specific_url(:section => params[:section], :id => gallery) %></li>

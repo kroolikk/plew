@@ -5,7 +5,7 @@ development:
   database: plew-dev1_development
   pool: 5
   username: root
-  password: '123'
+  password: ananas
   host: localhost
 
 test:
@@ -15,7 +15,7 @@ test:
   database: plew-dev1_test
   pool: 5
   username: root
-  password: '123'
+  password: ananas
   host: localhost
 
 production:
@@ -25,5 +25,5 @@ production:
   database: plew-dev1_development
   pool: 5
   username: root
-  password: '123'
+  password: ananas
   host: localhost

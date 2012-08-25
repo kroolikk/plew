@@ -1,12 +1,13 @@
+# -*- encoding: utf-8 -*-
 module ApplicationHelper
 
   
   
   def display_user(user)
     case user
-    when SECTION[0] then "osoba1"
-    when SECTION[1] then "osoba2"
-    when SECTION[2] then "osoba3"
+    when SECTION[0] then "Wojciech Plewiński"
+    when SECTION[1] then "Maciej Plewiński"
+    when SECTION[2] then "Filip Plewiński"
     else "Brak etykiety"
     end
   end
