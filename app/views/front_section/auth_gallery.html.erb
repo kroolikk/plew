@@ -65,7 +65,10 @@
 	<% end %>
       </div><!-- odpalacz coloboxa wewnatrz nivoslidera, musi być tu -->
       <script>
-				jQuery('a.gallery').colorbox();
+				jQuery('a.gallery').colorbox({
+					maxWidth: '90%',
+					maxHeight: '90%'
+				});
       </script>
     </div>
     

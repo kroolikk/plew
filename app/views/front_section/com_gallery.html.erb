@@ -50,9 +50,15 @@
       <div class="slider-wrapper">
 	<div id="slider" class="nivoSlider">
 	  <% @selected_gallery.photos.each do |photo| %>
-	    <%= link_to( image_tag(photo.photo.url, 'data-thumb' => photo.photo.thumb.url, :alt => '', :title => "#caption_#{photo.id}"), photo.photo.url) %>
+	    <%= link_to( image_tag(photo.photo.url, 'data-thumb' => photo.photo.thumb.url, :alt => '', :title => "#caption_#{photo.id}"), photo.photo.url, :class => "gallery") %>
 	  <% end %>
-	</div>	
+	</div><!-- odpalacz coloboxa wewnatrz nivoslidera, musi być tu -->
+      <script>
+				jQuery('a.gallery').colorbox({
+					maxWidth: '90%',
+					maxHeight: '90%'
+				});
+      </script>	
       </div>
     <% end %>
   <% end %>
