@@ -21,6 +21,21 @@
     <%= f.label :content, "Treść" %><br />
     <%= f.text_area :content, :class => 'mceEditor' %>
   </div>
+  
+  <div class="field">
+    <% if @page.photo.present? %>
+      <%= (image_tag @page.photo.thumb.url) %><br />
+    <% end %>
+    
+    <%= f.label :photo, "Zdjęcie" %>
+    <%= f.file_field :photo %>
+    <br/>
+    <label>
+      <%= f.check_box :remove_photo %>
+      Usuń zdjęcie
+    </label>
+  </div>
+  
   <div class="actions">
     <%= f.submit "Zatwierdź" %>
   </div>

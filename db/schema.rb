@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120824210053) do
+ActiveRecord::Schema.define(:version => 20120826201625) do
 
   create_table "galleries", :force => true do |t|
     t.string   "section"
@@ -23,14 +23,50 @@ ActiveRecord::Schema.define(:version => 20120824210053) do
     t.text     "description"
   end
 
+  create_table "gallery_translations", :force => true do |t|
+    t.integer  "gallery_id"
+    t.string   "locale"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "gallery_translations", ["gallery_id"], :name => "index_gallery_translations_on_gallery_id"
+  add_index "gallery_translations", ["locale"], :name => "index_gallery_translations_on_locale"
+
+  create_table "page_translations", :force => true do |t|
+    t.integer  "page_id"
+    t.string   "locale"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "page_translations", ["locale"], :name => "index_page_translations_on_locale"
+  add_index "page_translations", ["page_id"], :name => "index_page_translations_on_page_id"
+
   create_table "pages", :force => true do |t|
     t.string   "section"
     t.string   "label"
     t.string   "title"
-    t.string   "content"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "photo"
+  end
+
+  create_table "photo_translations", :force => true do |t|
+    t.integer  "photo_id"
+    t.string   "locale"
+    t.string   "p_title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "photo_translations", ["locale"], :name => "index_photo_translations_on_locale"
+  add_index "photo_translations", ["photo_id"], :name => "index_photo_translations_on_photo_id"
 
   create_table "photos", :force => true do |t|
     t.integer  "gallery_id"
