@@ -5,12 +5,14 @@
    </ul>
    <p class="clear"></p>
    <div id="tab-1">
-     <%= (image_tag @review.photo.thumb.url) if @review.photo.present? %>
+     <%= (image_tag @review.photo.small.url) if @review.photo.present? %>
      <%= raw @review.content if @review.present? %>
+     <p class="clear"></p>
    </div>
    <div id="tab-2">
-     <%= (image_tag @contact.photo.thumb.url) if @contact.photo.present? %>
+     <%= (image_tag @contact.photo.small.url) if @contact.photo.present? %>
      <%= raw @contact.content if @contact.present? %>
+     <p class="clear"></p>
    </div>
    
 </div>

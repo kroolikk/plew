@@ -323,6 +323,10 @@ float: left;
 #tabs div p{
 	font-size: 14px !important;
 }
+#tabs div img{
+	float: left;
+	margin: 0px 10px 15px 0px;
+}
 .film-holder {
 	margin-top: 50px;
 }
@@ -344,7 +348,12 @@ float: left;
 	font-family: 'Exo', helvetica, Arial, sans-serif;
 	font-weight: bold;
 }
-
+.selected {
+	font-weight: bold;
+	border-radius: 3px;
+	padding: 5px;
+	background: rgba(51, 51, 51, 0.8);
+}
 @media all and (max-width: 1118px) {
 	header h1 {
 		width: 374px;

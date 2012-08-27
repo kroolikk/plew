@@ -1,35 +1,4 @@
 <div class="gallery-holder">
-  <script>
-    $(document).ready(function () {
-      var timer;
-    
-      $('.hoverli').mouseenter(function () {
-        if(timer) {
-          clearTimeout(timer);
-          timer = null
-        }
-        timer = setTimeout(function() {
-          $('ul.file_menu').slideDown('medium');
-        }, 500);
-      });
-
-      $('.hoverli').mouseleave(function () {
-        $('ul.file_menu').delay(200).slideUp('medium');
-      });
-
-    
-    <% if false %>
-      $('.hoverli').hover(
-        function () {
-          $('ul.file_menu').slideDown('medium');
-        },
-        function () {
-          $('ul.file_menu').delay(200).slideUp('medium');
-        }
-      );
-    <% end %>  
-    });    
-  </script>
 
   <h1>Autorskie</h1>
   
