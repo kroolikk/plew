@@ -30,7 +30,7 @@
       <div class="slider-wrapper">
 	<div id="slider" class="nivoSlider">
 	  <% @selected_gallery.photos.each do |photo| %>
-	    <%= link_to( image_tag(photo.photo.url, 'data-thumb' => photo.photo.thumb.url, :alt => '', :title => "#caption_#{photo.id}"), photo.photo.url, :class => "gallery") %>
+	    <%= link_to( image_tag(photo.photo.url, 'data-thumb' => photo.photo.small.url, :alt => '', :title => "#caption_#{photo.id}"), photo.photo.url, :class => "gallery") %>
 	  <% end %>
 	</div><!-- odpalacz coloboxa wewnatrz nivoslidera, musi być tu -->
       <script>
