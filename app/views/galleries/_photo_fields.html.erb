@@ -1,11 +1,13 @@
-<div class="fields">
-  <%= f.label :p_title, "Tytuł" %>
-  <%= f.text_field :p_title %><br />
+<div class="field">
+  <%= f.label :p_title, "Tytuł zdjęcia" %>
+  <%= f.text_field :p_title %>
+</div>
+<div class="field">
   <%= f.label :photo, "Plik" %>
   <%= f.file_field :photo %>
-  <%= link_to_remove_fields "usuń", f %><br />
+  <%= link_to_remove_fields "usuń", f %><br>
   <% if f.object.photo.present? %>
-    <br /><%= (image_tag f.object.photo.thumb.url) %><br />
-  <% end %>
-  --------------------------------------<br/>
+    <br /><%= (image_tag f.object.photo.thumb.url) %><br>
+  <% end %><br>
+  --------------------------------------<br>
 </div>

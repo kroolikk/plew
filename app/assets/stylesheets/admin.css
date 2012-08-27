@@ -8,12 +8,19 @@ ul, li {padding: 0;}
 a {	color: #96b000;
 	text-decoration:none;
 }
+.page-content h1 {
+	margin-bottom: 20px;
+}
 h1 {
 	margin-top:35px;
 	margin-bottom: 0px;
 }
 table th {
 	text-align: left;
+}
+.clearspace {
+	height: 30px;
+	clear: both;
 }
 .clear {
 	clear:both;
