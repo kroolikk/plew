@@ -1,4 +1,4 @@
-en:
+pl:
   success: "Sukces!"
   error: "Uwaga!"
 
@@ -6,5 +6,8 @@ en:
     photographer: "fotograf"
     photo_own: "fotografia autorska"
     photo_com: "fotografia komercyjna"
+    video: "video"
     contact: "info"
     category: "Wybierz kategorię"
+    contact_label: "Kontakt"
+    review_label: "Recenzje"

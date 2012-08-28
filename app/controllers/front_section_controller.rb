@@ -15,6 +15,7 @@ class FrontSectionController < ApplicationController
     end    
   end
 
+
   def com_gallery
     if params[:section].present?      
       @galleries = Gallery.where(:section => params[:section], :gal_type => GAL_TYPE[1])
@@ -29,6 +30,22 @@ class FrontSectionController < ApplicationController
     end        
   end
 
+  
+  def vid
+    if params[:section].present?      
+      @vids = [] #Vid.where(:section => params[:section])
+      
+      if params[:id].present?
+        @selected_vid = Vid.find_by_id(params[:id])
+      else
+        @selected_vid = @vids.first
+      end
+    else
+      redirect_to root_url
+    end
+  end
+
+  
   def info
     if params[:section].present?
       

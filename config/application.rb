@@ -2,7 +2,7 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-SECTION = ['os1', 'os2', 'os3']
+SECTION = ['wojciech', 'maciej', 'filip']
 GAL_TYPE = ['auth', 'com']
 PAGE_LABELS = [["Recenzje", "review"],
                ["Kontakt", "contact"]]

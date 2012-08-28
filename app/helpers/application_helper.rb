@@ -31,7 +31,7 @@ module ApplicationHelper
     when SECTION[0] then "Wojciech Plewiński"
     when SECTION[1] then "Maciej Plewiński"
     when SECTION[2] then "Filip Plewiński"
-    else "Brak etykiety"
+    else ""
     end
   end
   
@@ -40,7 +40,7 @@ module ApplicationHelper
     case label
     when "contact" then "Kontakt"
     when "review" then "Recenzje"
-    else "Brak etykiety"
+    else ""
     end
   end
 

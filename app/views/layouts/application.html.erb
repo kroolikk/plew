@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Plewiński.com - Fotograf</title>
-     <meta name=”description” content=”Fotografia Plewiński”>
-<meta name=”keywords” content=”fotograf, fotografia, maciej plewiński, wojciech plewiński, filip plewiński, plewiński autorskie, komercyjne, kraków”>
-<meta name=”robots” content=”index,follow”>
+    <title><%= display_user(params[:section]) %> - Plewiński.com - Fotograf</title>
+    <meta name=”description” content=”Fotografia Plewiński”>
+    <meta name=”keywords” content=”fotograf, fotografia, maciej plewiński, wojciech plewiński, filip plewiński, plewiński autorskie, komercyjne, kraków”>
+    <meta name=”robots” content=”index,follow”>
     <%= stylesheet_link_tag "style.css" %>
     <%= stylesheet_link_tag "colorbox.css" %>
 
@@ -13,9 +13,9 @@
     <%= javascript_include_tag "init.js" %>
     <%= javascript_include_tag "jquery.colorbox-min.js" %>
     <%#= javascript_include_tag "http://www.jacklmoore.com/colorbox/colorbox/jquery.colorbox.js" %>    
-
+    
     <%= javascript_include_tag "jquery.nivo.slider.js" %>
-
+    
     <%#= javascript_include_tag "application" %>
     
     <link href='http://fonts.googleapis.com/css?family=Voces|Exo:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -24,20 +24,25 @@
   <body>
     <div class="main-wrapper">
       <header>
-      <div class="languages">
-      <%= link_to image_tag('pl.png'), set_language_url(:locale => 'pl'), :class => "#{'lang_selected' if session[:locale] == 'pl'}" %> |
-	  	<%= link_to image_tag('gb.png'), set_language_url(:locale => 'en'), :class => "last-flag #{'lang_selected' if session[:locale] == 'en'}" %>
-	  	</div>
+	<div class="languages">
+	  <%= link_to image_tag('pl.png'), set_language_url(:locale => 'pl'), :class => "#{'lang_selected' if session[:locale] == 'pl'}" %> |
+	  <%= link_to image_tag('gb.png'), set_language_url(:locale => 'en'), :class => "last-flag #{'lang_selected' if session[:locale] == 'en'}" %>
+	</div>
 	<% if params[:controller] == 'home' || params[:action] == 'index' %>
 	  <h1><%= link_to '', root_url, :class => "home-icon" %><%= link_to "www.plewinski.com", root_path %></h1>
-	  	  <div class="clear seperator"></div>
-	  <% else %>
+	  <div class="clear seperator"></div>
+	<% else %>
 	  <h1><%= link_to '', root_url, :class => "home-icon" %><%= link_to display_user(params[:section]), auth_gallery_url %><span><%= t('main.photographer') %></span></h1>
-	  <% end %>
-	  <% if params[:controller] != 'home' || params[:action] != 'index' %>
+	<% end %>
+	<% if params[:controller] != 'home' || params[:action] != 'index' %>
 	  <nav>
-	    <%= link_to t('main.photo_own'), auth_gallery_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "auth_gallery") }" %>
-	    <%= link_to t('main.photo_com'), com_gallery_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "com_gallery") }" %>
+	    <% if params[:section] == SECTION[2] %>
+	      <%= link_to t('main.photo_own'), auth_gallery_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "auth_gallery") }" %>
+	      <%= link_to t('main.video'), vid_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "video") }" %>
+	    <% else %>
+	      <%= link_to t('main.photo_own'), auth_gallery_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "auth_gallery") }" %>
+	      <%= link_to t('main.photo_com'), com_gallery_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "com_gallery") }" %>
+	    <% end %>
 	    <%= link_to t('main.contact'), info_url, :class => "#{ set_selected_class("front_section", "info") }" %>
 	  </nav>
 	  <div class="clear seperator"></div>
@@ -45,7 +50,7 @@
       </header>
 
       <%= yield %>
-<div class="clearspace"></div>
+      <div class="clearspace"></div>
     </div>
   </body>
 </html>
