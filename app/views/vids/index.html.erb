@@ -1,0 +1,21 @@
+<h1>Video</h1>
+<%= link_to 'Dodaj nowe video', new_vid_path %>
+<br/>
+<br/>
+<br/>
+<table width="100%">
+  <tr>
+    <th width="30%">Tytuł</th>
+    <th width="60%">Opis</th>
+    <th width="10%">Link</th>
+  </tr>
+
+<% @vids.each do |vid| %>
+  <tr>
+    <td><%= vid.title %></td>
+    <td><%= vid.description %></td>
+    <td><%= vid.link_to_vid %></td>
+    <td><%= link_to 'Edytuj', edit_vid_path(vid) %> <%= link_to 'Usuń', vid, confirm: 'Czy na pewno chcesz usunąć video? ', method: :delete %></td>
+  </tr>
+<% end %>
+</table>

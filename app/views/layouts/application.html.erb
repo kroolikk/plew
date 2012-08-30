@@ -29,16 +29,23 @@
 	  <%= link_to image_tag('gb.png'), set_language_url(:locale => 'en'), :class => "last-flag #{'lang_selected' if session[:locale] == 'en'}" %>
 	</div>
 	<% if params[:controller] == 'home' || params[:action] == 'index' %>
-	  <h1><%= link_to '', root_url, :class => "home-icon" %><%= link_to "www.plewinski.com", root_path %></h1>
+	  <h1>
+	    <%= link_to '', root_url, :class => "home-icon" %>
+	    <%= link_to "www.plewinski.com", root_path %>
+	  </h1>
 	  <div class="clear seperator"></div>
 	<% else %>
-	  <h1><%= link_to '', root_url, :class => "home-icon" %><%= link_to display_user(params[:section]), auth_gallery_url %><span><%= t('main.photographer') %></span></h1>
+	  <h1>
+	    <%= link_to '', root_url, :class => "home-icon" %>
+	    <%= link_to display_user(params[:section]), auth_gallery_url %>
+	    <span><%= t('main.photographer') %></span>
+	  </h1>
 	<% end %>
 	<% if params[:controller] != 'home' || params[:action] != 'index' %>
 	  <nav>
 	    <% if params[:section] == SECTION[2] %>
 	      <%= link_to t('main.photo_own'), auth_gallery_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "auth_gallery") }" %>
-	      <%= link_to t('main.video'), vid_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "video") }" %>
+	      <%= link_to t('main.video'), front_vid_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "vid") }" %>
 	    <% else %>
 	      <%= link_to t('main.photo_own'), auth_gallery_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "auth_gallery") }" %>
 	      <%= link_to t('main.photo_com'), com_gallery_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "com_gallery") }" %>

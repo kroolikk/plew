@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Section:</b>
+  <%= @vid.section %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @vid.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @vid.description %>
+</p>
+
+<p>
+  <b>Link to vid:</b>
+  <%= @vid.link_to_vid %>
+</p>
+
+
+<%= link_to 'Edit', edit_vid_path(@vid) %> |
+<%= link_to 'Back', vids_path %>

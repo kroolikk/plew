@@ -1,7 +1,7 @@
 PlewDev1::Application.routes.draw do
 
 
-
+  resources :vids
 
   # chwilowa akcja
   get "portfolio" => "home#portfolio", :as => :portfolio
@@ -11,8 +11,8 @@ PlewDev1::Application.routes.draw do
   match "/:section/fotografia-autorska/:id" => "front_section#auth_gallery", :as => :auth_gallery_specific
   match "/:section/fotografia-komercyjna" => "front_section#com_gallery", :as => :com_gallery
   match "/:section/fotografia-komercyjna/:id" => "front_section#com_gallery", :as => :com_gallery_specific
-  match "/:section/video" => "front_section#vid", :as => :vid
-  match "/:section/video/:id" => "front_section#video", :as => :video
+  match "/:section/video" => "front_section#vid", :as => :front_vid
+  match "/:section/video/:id" => "front_section#single_vid", :as => :front_vid_single
   match "/:section/info" => "front_section#info", :as => :info
 
 

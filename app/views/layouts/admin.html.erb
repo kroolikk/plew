@@ -66,9 +66,15 @@
 	<aside class="main-nav">
 	  <ul>
 	    <% if session[:section].present? %>
-	    <li><%= link_to "Strony informacyjne", pages_url %></li>
-	    <li><%= link_to "Albumy autorskie", set_gallery_type_url(:type => GAL_TYPE[0]) %></li>
-	    <li><%= link_to "Albumy komercyjne", set_gallery_type_url(:type => GAL_TYPE[1]) %></li>
+	      <% if session[:section] == SECTION[2] %>
+		<li><%= link_to "Strony informacyjne", pages_url %></li>
+		<li><%= link_to "Albumy", set_gallery_type_url(:type => GAL_TYPE[0]) %></li>
+		<li><%= link_to "Video", vids_url %></li>
+	      <% else %>
+		<li><%= link_to "Strony informacyjne", pages_url %></li>
+		<li><%= link_to "Albumy autorskie", set_gallery_type_url(:type => GAL_TYPE[0]) %></li>
+		<li><%= link_to "Albumy komercyjne", set_gallery_type_url(:type => GAL_TYPE[1]) %></li>
+	      <% end %>
 	    <% end %>
 	  </ul>
 	</aside>

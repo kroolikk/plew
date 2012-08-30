@@ -33,7 +33,7 @@ class FrontSectionController < ApplicationController
   
   def vid
     if params[:section].present?      
-      @vids = [] #Vid.where(:section => params[:section])
+      @vids = Vid.all
       
       if params[:id].present?
         @selected_vid = Vid.find_by_id(params[:id])
