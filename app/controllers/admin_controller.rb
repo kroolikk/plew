@@ -37,6 +37,7 @@ class AdminController < ApplicationController
   def logout
     session[:logout_requested] = true
     session[:admin_loggedin] = false
+    session[:section] = false
     flash[:notice] = "Zostales wylogowany."
     redirect_to admin_login_path
   end
