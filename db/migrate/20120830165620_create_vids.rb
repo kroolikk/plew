@@ -4,7 +4,7 @@ class CreateVids < ActiveRecord::Migration
       t.string :section
       t.string :title
       t.text :description
-      t.string :link_to_vid
+      t.text :link_to_vid
 
       t.timestamps
     end
