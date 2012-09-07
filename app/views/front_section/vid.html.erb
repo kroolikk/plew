@@ -1,10 +1,13 @@
 <div class="gallery-holder">
-
+<div class="clearspace"></div>
   <% @vids.each do |vid| %>
-    <%= vid.title %><br/>
-    <%= vid.description %><br/>
-    <%= raw vid.link_to_vid %><br/>
-    <br/><br/><br/>
+    <p class="vid-title"><%= vid.title %></p>
+    <p class="album-desc"><%= vid.description %></p><br/>
+    <div class="video-holder"><%= raw vid.link_to_vid %>
+		<br/><br/><div class="clear seperator"></div>
+    </div>
+    <div class="clearspace"></div>
+
   <% end %>
   
 </div>

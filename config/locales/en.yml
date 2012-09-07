@@ -4,6 +4,7 @@ en:
 
   main:
     photographer: "photography"
+    photo_main: "photography"
     photo_own: "personal work"
     photo_com: "commercial work"
     video: "video"

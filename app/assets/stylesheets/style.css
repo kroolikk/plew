@@ -105,6 +105,14 @@ nav a {
 	margin: 10px auto;
 	padding: 5px 10px;
 }
+.vid-title {
+	font-size: 16px;
+	font-weight: bold;
+	width: 75%;
+	margin: 0 auto;
+	padding: 5px 10px;
+}
+
 .photo-title {
 	font-weight: bold;
 	width: 75%;
@@ -295,23 +303,26 @@ nav a {
 	margin-right: 10px;
 	float: left;
 }
+#tabs ul li, #tabs ol li {
+	list-style-position: inside;
+}
 #tabs ul {
-padding-top: 4px;
-margin-top: 30px;
-height: 25px;
+	padding-top: 4px;
+	margin-top: 30px;
+	height: 25px;
 }
 #tabs li.active {
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
 	background: rgba(51, 51, 51, 0.6);
 }
-#tabs li {
-padding: 8px 18px;
-margin-right: 15px;
-list-style: none;
+#tabs li.tabbed {
+	padding: 8px 18px;
+	margin-right: 15px;
+	list-style: none;
 }
-#tabs li, #tabs li a {
-float: left;
+#tabs li.tabbed, #tabs li.tabbed a {
+	float: left;
 }
 #tabs div {
 	border-bottom-left-radius: 3px;
@@ -325,7 +336,7 @@ float: left;
 }
 #tabs div img{
 	float: left;
-	margin: 0px 10px 15px 0px;
+	margin: 0px 10px 12px 0px;
 }
 .film-holder {
 	margin-top: 50px;
@@ -370,6 +381,12 @@ float: left;
 .languages {
 	float: right;
 	color: #333;
+	margin-top: 8px;
+}
+.video-holder {
+	width: 75%;
+	margin: 0 auto;
+	padding: 5px 10px;
 }
 @media all and (max-width: 1118px) {
 	header h1 {
