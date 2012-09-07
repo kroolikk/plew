@@ -230,4 +230,7 @@ aside {	height: 100%;
 .last-flag {
 	margin-right: 10px;
 }
+.selected {
+	font-weight: bold;
+}
 
