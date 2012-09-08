@@ -4,9 +4,10 @@ pl:
 
   main:
     photographer: "fotograf"
+    photo_main: "fotografia"
     photo_own: "fotografia autorska"
     photo_com: "fotografia komercyjna"
-    video: "video"
+    video: "filmy"
     contact: "info"
     category: "Wybierz kategorię"
     contact_label: "Kontakt"

@@ -55,6 +55,7 @@
 	<div style="min-width: 290px; float: left;">
 	  
 	  <% if session[:admin_loggedin] %>
+		<strong><%= link_to "Wróć do serwisu", root_url, :target => "_blank" %></strong>
 	    <strong><%= link_to "wyloguj", admin_logout_url %></strong>
 	  <% end %>
 	  <span class="next-sep">&nbsp;</span>
