@@ -41,3 +41,5 @@ gem "rmagick"
 gem 'carrierwave'
 
 gem 'globalize3'
+
+gem 'thin'

@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(:version => 20120830165620) do
     t.string   "section"
     t.string   "title"
     t.text     "description"
-    t.string   "link_to_vid"
+    t.text     "link_to_vid"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
