@@ -23,7 +23,7 @@ class AdminController < ApplicationController
   end
 
   def enter
-    if params[:login] == "Admin" && params[:password] == "admin"
+    if params[:login] == "PlevaM" && params[:password] == "XniwelP"
       flash[:notice] = "Zalogowano do panelu administracyjnego."
       session[:admin_loggedin] = true
       session[:account_type] = "Admin"
