@@ -1,16 +1,29 @@
+# -*- encoding: utf-8 -*-
+
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+
 SECTION = ['wojciech', 'maciej', 'filip']
+
 GAL_TYPE = ['auth', 'com']
+
 PAGE_LABELS = [["Recenzje", "review"],
                ["Kontakt", "contact"]]
 
 AVAILABLE_LANGUAGES = [:pl, :en]
 
-CATEGORIES1 = [['CAT1.1', 'cat1-1'], ['CAT1.2', 'cat1-2']]
-CATEGORIES2 = [['CAT2.1', 'cat2-1'], ['CAT2.2', 'cat2-2']]
+CATEGORIES1 = [['Teatr', 'teatr'], 
+               ['Portety', 'portety'], 
+               ['Przekrój', 'przekroj'], 
+               ['Akty', 'akty'], 
+               ['Zauważone', 'zauwazone'], 
+               ['Reportaże', 'reportaze'], 
+               ['Łowy', 'lowy'], 
+               ['Portrety własne', 'portrety-wlasne']]
+
+CATEGORIES2 = [['kategoria1', 'cat1'], ['kategoria2', 'cat2'], ['kategoria3', 'cat3'], ['kategoria4', 'cat4'], ['kategoria5', 'cat5']]
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line

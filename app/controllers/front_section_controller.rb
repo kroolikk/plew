@@ -1,7 +1,5 @@
 class FrontSectionController < ApplicationController
 
-  
-
   def auth_gallery_categories
     if params[:section].present?      
       if params[:section] == SECTION[1]

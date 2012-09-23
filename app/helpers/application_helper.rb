@@ -6,8 +6,16 @@ module ApplicationHelper
     res = CATEGORIES1.detect{|c| c[1] == category}
     
     res = CATEGORIES2.detect{|c| c[1] == category} if res.blank?
-
-    res.present? ? ret = res[0] : "Brak etykiety"
+    
+    if res.present? 
+      if res[0].present?
+        ret = res[0]
+      else
+        ret = res[1]
+      end
+    else
+      ret = category
+    end
     return ret
   end
 
