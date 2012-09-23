@@ -1,50 +1,54 @@
+<div class="gallery-holder">  
+  <div class="left-gal">    
+    <div class="category-holder">
+      <% if params[:section] != SECTION[1] %>
+	<%= link_to '<< Powrót', auth_gallery_categories_url(:section => params[:section]) %><br/>
+      <% end %>
+      
+      <p><%= t('main.category') %>:</p>
 
-<div class="gallery-holder">
-	
-	<div class="left-gal">
-		
-<div class="category-holder">
-    <p><%= t('main.category') %>:</p>
-    
-      <ul>
+      <ul>	
 	<% @galleries.each do |gallery| %>
-	  <li><%= link_to gallery.title, auth_gallery_specific_url(:section => params[:section], :id => gallery) %></li>
-	<% end %>	
-      </ul>
-  </div>
-</div>
-<div class="right-gal">
-  
-
-  <div class="right-col">
-  <% if @selected_gallery.present? %>
-    <div class="clear album-desc">
-      <%= @selected_gallery.description %>
-    </div>
-    
-    <p class="photo-title"></p>
-    <% @selected_gallery.photos.each do |photo| %>
-      <div id="<%= "caption_#{photo.id}" %>" class="nivo-html-caption">
-	<%= photo.p_title %>
-      </div>
-    <% end %>
-    
-    <div class="slider-wrapper">
-      <div id="slider" class="nivoSlider">
-	<% @selected_gallery.photos.each do |photo| %>
-	  <%= link_to( image_tag(photo.photo.url, 'data-thumb' => photo.photo.small.url, :alt => '', :title => "#caption_#{photo.id}"), photo.photo.url, :class => "gallery") %>
+	  <li>
+	    <% if params[:cat].present? %>
+              <%= link_to gallery.title, auth_gallery_specific_url(:section => params[:section], :cat => params[:cat], :id => gallery) %>
+	    <% else %>
+	      <%= link_to gallery.title, auth_gallery_specific_url(:section => params[:section], :id => gallery) %>
+	    <% end %>
+	  </li>
 	<% end %>
-      </div><!-- odpalacz coloboxa wewnatrz nivoslidera, musi być tu -->
-      <script>
-	jQuery('a.gallery').colorbox({
-	  maxWidth: '90%',
-	  maxHeight: '90%'
-	});
-      </script>
+      </ul>
     </div>
-    
-  <% end %>
- </div></div>
+  </div>
+  <div class="right-gal">
+    <div class="right-col">
+      <% if @selected_gallery.present? %>
+	<div class="clear album-desc">
+	  <%= @selected_gallery.description %>
+	</div>
+	
+	<p class="photo-title"></p>
+	<% @selected_gallery.photos.each do |photo| %>
+	  <div id="<%= "caption_#{photo.id}" %>" class="nivo-html-caption">
+	    <%= photo.p_title %>
+	  </div>
+	<% end %>
 
-
+	<div class="slider-wrapper">
+	  <div id="slider" class="nivoSlider">
+	    <% @selected_gallery.photos.each do |photo| %>
+	      <%= link_to( image_tag(photo.photo.url, 'data-thumb' => photo.photo.small.url, :alt => '', :title => "#caption_#{photo.id}"), photo.photo.url, :class => "gallery") %>
+	    <% end %>
+	  </div><!-- odpalacz coloboxa wewnatrz nivoslidera, musi być tu -->
+	  <script>
+	    jQuery('a.gallery').colorbox({
+	    maxWidth: '90%',
+	    maxHeight: '90%'
+	    });
+	  </script>	  
+	</div>
+	
+      <% end %>
+    </div>
+  </div>
 </div>

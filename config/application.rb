@@ -9,6 +9,8 @@ PAGE_LABELS = [["Recenzje", "review"],
 
 AVAILABLE_LANGUAGES = [:pl, :en]
 
+CATEGORIES1 = [['CAT1.1', 'cat1-1'], ['CAT1.2', 'cat1-2']]
+CATEGORIES2 = [['CAT2.1', 'cat2-1'], ['CAT2.2', 'cat2-2']]
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line

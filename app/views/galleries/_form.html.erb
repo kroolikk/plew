@@ -12,6 +12,19 @@
   <% end %>
   
 
+  <% if session[:section] == SECTION[0] %>
+    <div class="field">
+      <%= f.label :label, "Kategoria" %>
+      <%= f.select :label, options_for_select(CATEGORIES1, @gallery.label) %>
+    </div>
+  <% elsif session[:section] == SECTION[1] %>
+  <% else %>
+    <div class="field">
+      <%= f.label :label, "Kategoria" %>
+      <%= f.select :label, options_for_select(CATEGORIES2, @gallery.label) %>
+    </div>
+  <% end %>
+    
   <div class="field">
     <%= f.label :title, "Tytuł Albumu" %>
     <%= f.text_field :title %>

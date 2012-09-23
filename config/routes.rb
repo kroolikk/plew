@@ -7,10 +7,14 @@ PlewDev1::Application.routes.draw do
   get "portfolio" => "home#portfolio", :as => :portfolio
   
 
-  match "/:section/fotografia-autorska" => "front_section#auth_gallery", :as => :auth_gallery
-  match "/:section/fotografia-autorska/:id" => "front_section#auth_gallery", :as => :auth_gallery_specific
-  match "/:section/fotografia-komercyjna" => "front_section#com_gallery", :as => :com_gallery
-  match "/:section/fotografia-komercyjna/:id" => "front_section#com_gallery", :as => :com_gallery_specific
+  match "/:section/fotografia-autorska" => "front_section#auth_gallery_categories", :as => :auth_gallery_categories
+  match "/:section/fotografia-autorska/:cat" => "front_section#auth_gallery", :as => :auth_gallery
+  match "/:section/fotografia-autorska/:cat/:id" => "front_section#auth_gallery", :as => :auth_gallery_specific
+
+  match "/:section/fotografia-komercyjna" => "front_section#com_gallery_categories", :as => :com_gallery_categories
+  match "/:section/fotografia-komercyjna/:cat" => "front_section#com_gallery", :as => :com_gallery
+  match "/:section/fotografia-komercyjna/:cat/:id" => "front_section#com_gallery", :as => :com_gallery_specific
+
   match "/:section/video" => "front_section#vid", :as => :front_vid
   match "/:section/video/:id" => "front_section#single_vid", :as => :front_vid_single
   match "/:section/info" => "front_section#info", :as => :info

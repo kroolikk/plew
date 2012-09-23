@@ -1,0 +1,20 @@
+<div class="gallery-holder">  
+  <div class="left-gal">    
+    <div class="category-holder">
+      <p><%= t('main.main_category') %>:</p>
+
+      <ul>
+	<% @categories.each do |c| %>
+	  <li>
+            <%= link_to show_category(c), com_gallery_url(:section => params[:section], :cat => c) %>
+	  </li>
+	<% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="right-gal">
+    <div class="right-col">
+      sssssssss
+    </div>
+  </div>
+</div>

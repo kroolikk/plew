@@ -9,6 +9,7 @@ pl:
     photo_com: "fotografia komercyjna"
     video: "filmy"
     contact: "info"
+    main_category: "Wybierz kategorię główną"
     category: "Wybierz kategorię"
     contact_label: "Kontakt"
     review_label: "Recenzje"

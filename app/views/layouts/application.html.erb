@@ -34,18 +34,18 @@
 	<% else %>
 	  <h1>
 	    <%= link_to '', root_url, :class => "home-icon" %>
-	    <%= link_to display_user(params[:section]), auth_gallery_url %>
+	    <%= link_to display_user(params[:section]), auth_gallery_categories_url %>
 	  </h1>
 	<% end %>
 	<% if params[:controller] != 'home' || params[:action] != 'index' %>
 	  <nav>
 	    <% if params[:section] == SECTION[2] %>
-	      <%= link_to t('main.photo_main'), auth_gallery_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "auth_gallery") }" %>
+	      <%= link_to t('main.photo_main'), auth_gallery_categories_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "auth_gallery") }" %>
 	      <%= link_to t('main.video'), front_vid_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "vid") }" %>
 	    <% else %>
-	      <%= link_to t('main.photo_own'), auth_gallery_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "auth_gallery") }" %>
+	      <%= link_to t('main.photo_own'), auth_gallery_categories_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "auth_gallery") }" %>
 	      <%= link_to t('main.contact'), info_url, :class => "#{ set_selected_class("front_section", "info") }" %>
-	      <%= link_to t('main.photo_com'), com_gallery_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "com_gallery") }" %>
+	      <%= link_to t('main.photo_com'), com_gallery_categories_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "com_gallery") }" %>
 	    <% end %>
 	    
 	  </nav>

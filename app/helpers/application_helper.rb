@@ -1,6 +1,17 @@
 # -*- encoding: utf-8 -*-
 module ApplicationHelper
 
+
+  def show_category(category)
+    res = CATEGORIES1.detect{|c| c[1] == category}
+    
+    res = CATEGORIES2.detect{|c| c[1] == category} if res.blank?
+
+    res.present? ? ret = res[0] : "Brak etykiety"
+    return ret
+  end
+
+
   def set_selected_class(controller, action=nil)
     if action.present?
       if action.class == Array

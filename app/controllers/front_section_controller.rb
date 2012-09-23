@@ -1,9 +1,32 @@
 class FrontSectionController < ApplicationController
 
+  
+
+  def auth_gallery_categories
+    if params[:section].present?      
+      if params[:section] == SECTION[1]
+        redirect_to auth_gallery_url(:section => params[:section], :cat => 'wszystkie')
+      else
+        categories = Gallery.where(["section = '#{params[:section]}' AND gal_type = '#{GAL_TYPE[0]}' AND label IS NOT NULL"])
+        if categories.present?
+          @categories = categories.collect.collect{|g| g.label}.uniq
+        else
+          @categories = []
+        end        
+      end
+    else
+      redirect_to root_url
+    end    
+  end
+
 
   def auth_gallery
-    if params[:section].present?      
-      @galleries = Gallery.where(:section => params[:section], :gal_type => GAL_TYPE[0])
+    if params[:section].present?
+      if params[:cat].present? && params[:cat] != 'wszystkie'
+        @galleries = Gallery.where(:section => params[:section], :gal_type => GAL_TYPE[0], :label => params[:cat])
+      else
+        @galleries = Gallery.where(:section => params[:section], :gal_type => GAL_TYPE[0])
+      end
       
       if params[:id].present?
         @selected_gallery = Gallery.find_by_id(params[:id])
@@ -16,9 +39,31 @@ class FrontSectionController < ApplicationController
   end
 
 
-  def com_gallery
+  def com_gallery_categories
     if params[:section].present?      
-      @galleries = Gallery.where(:section => params[:section], :gal_type => GAL_TYPE[1])
+      if params[:section] == SECTION[1]
+        redirect_to com_gallery_url(:section => params[:section], :cat => 'wszystkie')
+      else
+        categories = Gallery.where(["section = '#{params[:section]}' AND gal_type = '#{GAL_TYPE[1]}' AND label IS NOT NULL"])
+        if categories.present?
+          @categories = categories.collect.collect{|g| g.label}.uniq
+        else
+          @categories = []
+        end
+      end     
+    else
+      redirect_to root_url
+    end    
+  end
+
+  
+  def com_gallery
+    if params[:section].present?
+      if params[:cat].present?
+        @galleries = Gallery.where(:section => params[:section], :gal_type => GAL_TYPE[1], :label => params[:cat])
+      else
+        @galleries = Gallery.where(:section => params[:section], :gal_type => GAL_TYPE[1])
+      end
       
       if params[:id].present?
         @selected_gallery = Gallery.find_by_id(params[:id])
@@ -27,7 +72,7 @@ class FrontSectionController < ApplicationController
       end
     else
       redirect_to root_url
-    end        
+    end    
   end
 
   

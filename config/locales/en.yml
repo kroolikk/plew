@@ -9,6 +9,7 @@ en:
     photo_com: "commercial work"
     video: "video"
     contact: "info"
+    main_category: "Choose main category"
     category: "Choose category"
     contact_label: "Contact"
     review_label: "Reviews"
