@@ -118,6 +118,12 @@ nav a {
 	margin: 30px auto;
 	padding: 5px 10px;
 }
+
+.vid-desc {
+	width: 75%;
+	margin: 5px auto;
+	padding: 5px 10px;
+}
 .vid-title {
 	font-size: 16px;
 	font-weight: bold;
@@ -236,7 +242,7 @@ nav a {
 /* Direction nav styles (e.g. Next & Prev) */
 .nivo-directionNav a {
 	position:absolute;
-	top:45%;
+	top:0;
 	z-index:9;
 	cursor:pointer;
 }

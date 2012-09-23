@@ -3,6 +3,7 @@ $(window).load(function() {
     effect: 'fade',
     controlNavThumbs:true,
     manualAdvance: true,
+    animSpeed: 0,
     prevText: '',
     nextText: ''
   });
