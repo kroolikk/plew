@@ -2,7 +2,7 @@
   <div class="left-gal">    
     <div class="category-holder">
       <% if params[:section] != SECTION[1] %>
-	<%= link_to '<< Powrót', auth_gallery_categories_url(:section => params[:section]) %><br/>
+	<%= link_to '<< Powrót', auth_gallery_categories_url(:section => params[:section]) %><br/><br/>
       <% end %>
       
       <p><%= t('main.category') %>:</p>
