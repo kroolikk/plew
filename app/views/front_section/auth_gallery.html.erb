@@ -1,15 +1,20 @@
+
 <div class="gallery-holder">
-  <div class="category-holder">
-    <div class="category-intro"><%= t('main.category') %>:</div>
-    <div>
-      <p><span></span><%= @selected_gallery.title if @selected_gallery.present? %></p>
+	
+	<div class="left-gal">
+		
+<div class="category-holder">
+    <p><%= t('main.category') %>:</p>
+    
       <ul>
 	<% @galleries.each do |gallery| %>
 	  <li><%= link_to gallery.title, auth_gallery_specific_url(:section => params[:section], :id => gallery) %></li>
 	<% end %>	
       </ul>
-    </div>
   </div>
+</div>
+<div class="right-gal">
+  
 
   <div class="right-col">
   <% if @selected_gallery.present? %>
@@ -39,5 +44,7 @@
     </div>
     
   <% end %>
- </div>
+ </div></div>
+
+
 </div>

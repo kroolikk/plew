@@ -28,12 +28,9 @@
 	  <%= link_to image_tag('pl.png'), set_language_url(:locale => 'pl'), :class => "#{'lang_selected' if session[:locale] == 'pl'}" %> |
 	  <%= link_to image_tag('gb.png'), set_language_url(:locale => 'en'), :class => "last-flag #{'lang_selected' if session[:locale] == 'en'}" %>
 	</div>
+	
 	<% if params[:controller] == 'home' || params[:action] == 'index' %>
-	  <h1>
-	    <%= link_to '', root_url, :class => "home-icon" %>
-	    <%= link_to "www.plewinski.com", root_path %>
-	  </h1>
-	  <div class="clear seperator"></div>
+	  <div class="clearspace"></div>
 	<% else %>
 	  <h1>
 	    <%= link_to '', root_url, :class => "home-icon" %>

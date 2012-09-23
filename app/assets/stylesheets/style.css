@@ -23,6 +23,19 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+.right-gal {
+float: left; 
+width: 690px;
+margin-left: 50px;
+}
+.left-gal {
+	padding: 10px 10px 25px 10px;
+	border-radius: 6px;
+	margin-top: 20px;
+	background: rgba(0, 0, 0, 0.3);
+	float: left; 
+	width: 260px;
+}
 .clear {
 	clear: both;
 }
@@ -102,8 +115,7 @@ nav a {
 	text-shadow: 1px 1px 1px #363636;
 }
 .album-desc {
-	width: 75%;
-	margin: 10px auto;
+	margin: 30px auto;
 	padding: 5px 10px;
 }
 .vid-title {
@@ -116,7 +128,6 @@ nav a {
 
 .photo-title {
 	font-weight: bold;
-	width: 75%;
 	margin: 0 auto;
 	padding: 5px 10px;
 }
@@ -135,6 +146,9 @@ nav a {
     top:0px;
     left:0px;
     display:none;
+    max-width: 100%;
+    margin: 0 auto;
+    box-shadow: 0px 0px 6px rgba(0,0,0, 0.5);
 }
 .nivoSlider a {
     border:0;
@@ -151,7 +165,7 @@ nav a {
 	position:relative;
 	height:auto;
 	/* border: 1px solid #ccc; */
-	box-shadow: 0px 0px 6px rgba(0,0,0, 0.5);
+	
 }
 .nivoSlider img {
 	position:absolute;
@@ -161,8 +175,6 @@ nav a {
 .nivo-main-image {
 	display: block !important;
 	position: relative !important; 
-	max-width: 700px !important;
-
 }
 
 /* If an image is wrapped in a link */
@@ -170,8 +182,6 @@ nav a {
 	position:absolute;
 	top:0px;
 	left:0px;
-	width:100%;
-	height:100%;
 	border:0;
 	padding:0;
 	margin:0;
@@ -267,11 +277,6 @@ nav a {
 	opacity:0.6;
 	filter:alpha(opacity=60);
 }
-.category-holder {
-	margin-top: 20px;
-	height: 30px;
-	text-transform: uppercase;
-}
 .hoverli {
 	position: relative;
 	cursor: pointer;
@@ -281,28 +286,18 @@ nav a {
 .category-holder {
 	width: 300px;
 	float: left;
+	height: 30px;
+	text-transform: uppercase;
 }
 .right-col {
 	width: 700px;
 	float: left;
 }
-.category-holder ul.file_menu {
-	z-index: 999;
-	background: #222;
-	display: none;
-	position: absolute;
-	width: 500px;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	border-top-right-radius: 10px;
-	padding: 5px;
-}
-.category-holder ul.file_menu li {
+.category-holder li {
 	width: 230px;
-	float: left;
-	font-size: 11px;
-	list-style: none;
-	padding: 5px 0px 5px 15px;
+	list-style-position: inside;
+	padding: 5px 0px 5px 5px;
+	text-transform: none;
 }
 .category-intro {
 	margin-right: 10px;
