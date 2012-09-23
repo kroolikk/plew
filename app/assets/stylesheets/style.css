@@ -291,8 +291,6 @@ nav a {
 }
 .category-holder {
 	width: 300px;
-	float: left;
-	height: 30px;
 	text-transform: uppercase;
 }
 .right-col {
