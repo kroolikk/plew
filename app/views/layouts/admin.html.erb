@@ -72,7 +72,7 @@
 	  <ul>
 	    <% if session[:section].present? %>
 	      <% if session[:section] == SECTION[2] %>
-		<li><%= link_to "Strony informacyjne", pages_url %></li>
+				<% if false %><li><%= link_to "Strony informacyjne", pages_url %></li><% end %>
 		<li><%= link_to "Albumy", set_gallery_type_url(:type => GAL_TYPE[0]) %></li>
 		<li><%= link_to "Video", vids_url %></li>
 	      <% else %>

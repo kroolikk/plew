@@ -1,9 +1,9 @@
 <div class="gallery-holder">
   <div class="category-holder">
     <div class="category-intro"><%= t('main.category') %>:</div>
-    <div class="hoverli">
+    <div>
       <p><span></span><%= @selected_gallery.title if @selected_gallery.present? %></p>
-      <ul class="file_menu">
+      <ul>
 	<% @galleries.each do |gallery| %>
 	  <li><%= link_to gallery.title, auth_gallery_specific_url(:section => params[:section], :id => gallery) %></li>
 	<% end %>	
@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  
+  <div class="right-col">
   <% if @selected_gallery.present? %>
     <div class="clear album-desc">
       <%= @selected_gallery.description %>
@@ -39,4 +39,5 @@
     </div>
     
   <% end %>
+ </div>
 </div>
