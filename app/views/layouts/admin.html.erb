@@ -4,7 +4,7 @@
     <title>Plewiński.com Panel administracyjny</title>
     <%= stylesheet_link_tag "admin", :media => "all" %>
     <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Questrial|Istok+Web&subset=latin,latin-ext" %>
-    <%= javascript_include_tag 'jquery.js', 'jquery_ujs.js', 'application_jquery.js' %>
+    <%= javascript_include_tag 'jquery.js', 'jquery_ujs.js', 'jquery-ui.js', 'application_jquery.js' %>
     <%= csrf_meta_tags %>
 
     <%= javascript_include_tag "tiny_mce/tiny_mce.js" %>
@@ -16,6 +16,8 @@
         media_strict: false 
       });
     </script>
+
+    <%= yield :javascript %>
   </head>
   <body>
     

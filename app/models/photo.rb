@@ -1,5 +1,7 @@
 class Photo < ActiveRecord::Base
   attr_protected :id
+
+  acts_as_list
   
   translates :p_title
   

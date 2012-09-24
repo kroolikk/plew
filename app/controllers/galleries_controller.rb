@@ -1,6 +1,23 @@
 # -*- encoding: utf-8 -*-
 class GalleriesController < AdminController
-  
+
+
+  def sort
+    @gallery = Gallery.find(params[:id])
+    if @gallery.present?
+      @photos = Photo.where(:gallery_id => @gallery.id).order("position ASC")
+    else
+      @photos = []
+    end
+
+    @photos.each do |photo|
+      photo.position = params['ph_li'].index(photo.id.to_s) + 1
+      photo.save 
+    end
+
+    render :nothing => true
+  end
+
   
   def set_gallery_type
     if params[:type].present?
@@ -18,7 +35,12 @@ class GalleriesController < AdminController
 
 
   def show
-    @gallery = Gallery.find(params[:id])
+    @gallery = Gallery.find_by_id(params[:id])
+    if @gallery.present?
+      @photos = Photo.where(:gallery_id => @gallery.id).order("position ASC")
+    else
+      @photos = []
+    end
   end
 
 

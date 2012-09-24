@@ -1,16 +1,51 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <b>Name:</b>
-  <%= @gallery.name %>
+	<b>Tytuł:</b>
+	<%= @gallery.title %>
 </p>
 
-<p>
-  <b>Zdjęcia:</b><br/>
-  <% @gallery.photos.each do |photo| %>
-    <%= image_tag photo.photo.thumb.url %>
+<b>Zdjęcia:</b><br/>
+<ul id="ph_uls">
+  <% @photos.each do |photo| %>
+  <li class="ph_ul" id="ph_li_<%= photo.id %>">
+    <span class="handle">    
+      <%= image_tag photo.photo.thumb.url %>
+    </span>
+  </li>
   <% end %>
-</p>
+</ul>
 
-<%= link_to 'Edit', edit_gallery_path(@gallery) %> |
-<%= link_to 'Back', galleries_path %>
+
+<%= link_to 'Edytuj', edit_gallery_path(@gallery) %> |
+<%= link_to 'Powrót', galleries_path %>
+
+
+<style type="text/css">
+  .handle:hover{cursor: move;}
+</style>
+
+<% content_for :javascript do %>
+  <%= javascript_tag do %>
+    $(document).ready(function(){
+      $('#ph_uls').sortable({
+        axis: 'y',
+        dropOnEmpty: false,
+        handle: '.handle',
+        cursor: 'crosshair',
+        items: 'li',
+        opacity: 0.4,
+        scroll: true,
+        update: function(){
+          $.ajax({
+            type: 'post',
+            data: $('#ph_uls').sortable('serialize'),
+            dataType: 'script',
+            complete: function(request){
+              $('#books').effect('highlight');
+            },
+            url: '<%= sort_gallery_url(@gallery) %>'
+          })
+        }
+      });
+    });
+  <% end %>
+<% end %>

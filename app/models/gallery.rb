@@ -1,6 +1,6 @@
 class Gallery < ActiveRecord::Base
   attr_protected :id
-
+  
   translates :title, :description
   
   has_many :photos, :dependent => :destroy

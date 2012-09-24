@@ -43,3 +43,5 @@ gem 'carrierwave'
 gem 'globalize3'
 
 gem 'thin'
+
+gem "acts_as_list"

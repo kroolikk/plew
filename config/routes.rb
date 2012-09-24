@@ -32,6 +32,7 @@ PlewDev1::Application.routes.draw do
   match "admin/logout" => "admin#logout", :as => :admin_logout
 
   match "galeria/:type" => "galleries#set_gallery_type", :as => :set_gallery_type
+  match "sortuj-galerie/:id" => "galleries#sort", :as => :sort_gallery
   resources :galleries
   
   resources :pages

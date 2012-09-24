@@ -5,20 +5,24 @@
 <br/>
 <table width="100%">
   <tr>
-    <th width="30%">Tytuł</th>
+    <th width="20%">Tytuł</th>
     <th width="60%">Zdjęcia</th>
-    <th width="10%">Opcje</th>
+    <th width="20%">Opcje</th>
   </tr>
 
-<% @galleries.each do |gallery| %>
-  <tr>
-    <td><%= gallery.title %> <%= "(#{ show_category(gallery.label) })" if gallery.label.present? %></td>
-    <td>
-      <% gallery.photos.each do |photo| %>
-	<%= image_tag photo.photo.thumb.url, :title => photo.p_title, :alt => photo.p_title %>
-      <% end %>
-    </td>
-    <td><%= link_to 'Edytuj', edit_gallery_path(gallery) %> <%= link_to 'Usuń', gallery, confirm: 'Czy na pewno chcesz usunąć galerię? ', method: :delete %></td>
-  </tr>
-<% end %>
+  <% @galleries.each do |gallery| %>
+    <tr>
+      <td><%= gallery.title %> <%= "(#{ show_category(gallery.label) })" if gallery.label.present? %></td>
+      <td>
+        <% gallery.photos.each do |photo| %>
+          <%= image_tag photo.photo.thumb.url, :title => photo.p_title, :alt => photo.p_title %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to 'Sortuj', gallery_path(gallery) %>
+        <%= link_to 'Edytuj', edit_gallery_path(gallery) %> 
+        <%= link_to 'Usuń', gallery, confirm: 'Czy na pewno chcesz usunąć galerię? ', method: :delete %>
+      </td>
+    </tr>
+  <% end %>
 </table>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120830165620) do
+ActiveRecord::Schema.define(:version => 20120924210028) do
 
   create_table "galleries", :force => true do |t|
     t.string   "section"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20120830165620) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "p_title"
+    t.integer  "position"
   end
 
   create_table "vid_translations", :force => true do |t|
@@ -92,7 +93,7 @@ ActiveRecord::Schema.define(:version => 20120830165620) do
     t.string   "section"
     t.string   "title"
     t.text     "description"
-    t.text     "link_to_vid"
+    t.string   "link_to_vid"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
