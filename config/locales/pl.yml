@@ -13,3 +13,6 @@ pl:
     category: "Wybierz kategorię"
     contact_label: "Kontakt"
     review_label: "Recenzje"
+    nature: "Szkice z natury"
+    culture: "Szkice z kultury"
+    return: "« Wróć"

@@ -32,7 +32,6 @@ margin-left: 50px;
 	padding: 10px 10px 25px 10px;
 	border-radius: 6px;
 	margin-top: 20px;
-	background: rgba(0, 0, 0, 0.3);
 	float: left; 
 	width: 260px;
 }
@@ -59,31 +58,21 @@ header h1{
 	font-family: 'Open Sans Condensed', helvetica, Arial, sans-serif;
 	font-size: 48px;
 	font-weight: bold;
-	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
-	padding: 20px 15px 30px 15px;
+	padding: 20px 15px 30px 7px;
 	float: left;
 	position: relative;
+	text-transform: uppercase;
 }
 header h1 a{
 	color: #bababa;
 	font-family: 'Open Sans Condensed', helvetica, Arial, sans-serif;
 	font-size: 48px;
 	font-weight: bold;
-	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
 	float: left;
 	position: relative;
 }
 header h1 a:hover {
 	color: #bababa;
-}
-header h1 span {
-	color: #272727;
-	font-size: 16px;
-	text-shadow: 1px 1px 1px #4e4e4e;
-	text-transform: uppercase;
-	top: 72px;
-	right: 15px;
-	position: absolute;
 }
 .main-wrapper {
 	max-width: 1200px;
@@ -291,7 +280,6 @@ nav a {
 	float: left;
 }
 .category-holder {
-	width: 300px;
 	text-transform: uppercase;
 }
 .right-col {
@@ -300,9 +288,12 @@ nav a {
 }
 .category-holder li {
 	width: 230px;
-	list-style-position: inside;
-	padding: 5px 0px 5px 5px;
-	text-transform: none;
+	list-style: none;
+	padding: 5px 0px 5px 0px;
+}
+.category-holder li .selected {
+	color: #fff !important;
+	font-weight: bold;
 }
 .category-intro {
 	margin-right: 10px;
@@ -377,8 +368,8 @@ nav a {
 	background: url(/assets/home-icon.png) 0px 0px no-repeat;
 	width: 18px;
 	height: 18px;
-	margin-right: 10px;
-	margin-top: 26px;
+margin-left: 10px;
+margin-top: 38px;
 }
 .home-icon:hover {
 	background-position: 0px -37px;
