@@ -33,7 +33,7 @@ margin-left: 50px;
 	border-radius: 6px;
 	margin-top: 20px;
 	float: left; 
-	width: 260px;
+	width: 235px;
 }
 .clear {
 	clear: both;
@@ -75,8 +75,7 @@ header h1 a:hover {
 	color: #bababa;
 }
 .main-wrapper {
-	max-width: 1200px;
-	width: 80%;
+	width: 1000px;
 	margin: 0 auto;
 }
 nav {
@@ -125,6 +124,7 @@ nav a {
 	font-weight: bold;
 	margin: 0 auto;
 	padding: 5px 10px;
+	text-align: left;
 }
 
 #slider {
@@ -141,14 +141,16 @@ nav a {
     top:0px;
     left:0px;
     display:none;
-    max-width: 100%;
-    max-height: 600px;
     margin: 0 auto;
     box-shadow: 0px 0px 6px rgba(0,0,0, 0.5);
 }
 .nivoSlider a {
     border:0;
     display:block;
+}
+.nivo-thumbs-enabled {
+	list-style: none;
+	float: left;
 }
 .nivo-thumbs-enabled img {
 	width: 100px;
@@ -243,16 +245,23 @@ nav a {
 	background-position: bottom right;
 }
 .nivo-prevNav {
+	position:absolute;
+	top:0;
 	width: 30px;
 	background: url(/assets/nav-controls.png) top left no-repeat;
 	left: -35px;
 	height: 40px;
+		text-indent: -9999px;
+
 }
 .nivo-nextNav {
+	position:absolute;
+	top:0;
 	width: 30px;
 	background: url(/assets/nav-controls.png) top right no-repeat;
 	right: -41px;
 	height: 40px;
+	text-indent: -9999px;
 }
 /* Control nav styles (e.g. 1,2,3...) */
 .nivo-controlNav {
@@ -384,7 +393,26 @@ margin-top: 38px;
 	margin: 0 auto;
 	padding: 5px 10px;
 }
-@media all and (max-width: 1118px) {
+#slides {
+	position: relative;
+}
+.slides_container {
+	width:600px;
+	max-height:600px;
+	margin: 0 auto;
+}
+.slides_container img {
+	max-width: 600px;
+	max-height: 550px;
+	vertical-align: middle;
+}
+.slides_container div {
+	text-align: center;
+	width:600px;
+	height:600px;
+	display:block;
+}
+/* @media all and (max-width: 1118px) {
 	header h1 {
 		width: 455px;
 		text-align: center;
@@ -401,7 +429,7 @@ margin-top: 38px;
 		bottom: 80px;
 	}
 }
-/* tu nie dopisuj cssów */
+/* tu nie dopisuj cssów
 @media all and (max-width: 620px) {
 	header h1 {	width: 268px; }
 	header h1 a {font-size: 36px;}
@@ -412,5 +440,5 @@ margin-top: 38px;
 		bottom: 60px;
 		font-size: 20px;
 	}
-}
+} */
 /* tu nie dopisuj cssów */

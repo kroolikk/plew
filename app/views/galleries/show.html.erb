@@ -1,10 +1,10 @@
 <p>
-	<b>Tytuł:</b>
+	<b>Tytuł Albumu:</b>
 	<%= @gallery.title %>
 </p>
 
-<b>Zdjęcia:</b><br/>
-<ul id="ph_uls">
+<b>Zdjęcia:</b> złap zdjęcie i przesuń<br/>
+<ol id="ph_uls">
   <% @photos.each do |photo| %>
   <li class="ph_ul" id="ph_li_<%= photo.id %>">
     <span class="handle">    
@@ -12,11 +12,11 @@
     </span>
   </li>
   <% end %>
-</ul>
+</ol>
 
-
-<%= link_to 'Edytuj', edit_gallery_path(@gallery) %> |
-<%= link_to 'Powrót', galleries_path %>
+<div class="clearspace"></div>
+<%= link_to 'Edytuj album', edit_gallery_path(@gallery) %> |
+<%= link_to 'Zapisz', galleries_path %>
 
 
 <style type="text/css">
@@ -27,7 +27,7 @@
   <%= javascript_tag do %>
     $(document).ready(function(){
       $('#ph_uls').sortable({
-        axis: 'y',
+        axis: 'x',
         dropOnEmpty: false,
         handle: '.handle',
         cursor: 'crosshair',

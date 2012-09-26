@@ -22,19 +22,46 @@
   </div>
   <div class="right-gal">
     <div class="right-col">
+		
+		
+		
+		
+		
       <% if @selected_gallery.present? %>
 	<div class="clear album-desc">
 	  <%= @selected_gallery.description %>
 	</div>
 	
-	<p class="photo-title"></p>
-	<% @selected_gallery.photos.each do |photo| %>
-	  <div id="<%= "caption_#{photo.id}" %>" class="nivo-html-caption">
-	    <%= photo.p_title %>
-	  </div>
-	<% end %>
+	
 
-	<div class="slider-wrapper">
+<div id="slides">
+            <div class="slides_container">
+                <% @selected_gallery.photos.each do |photo| %>
+                <div>
+					<p class="photo-title"><%= photo.p_title %></p>
+					<%= link_to(image_tag(photo.photo.url), photo.photo.url, :class => "gallery") %>
+				</div>
+				<% end %>
+            </div><br>
+            <ul class="pagination">
+				<% @selected_gallery.photos.each do |photo| %>
+					<li class="nivo-thumbs-enabled"><a href="#"><%= image_tag(photo.photo.small.url) %></a></li>
+				<% end %>
+			</ul>
+        </div>
+	<script>
+	    jQuery('a.gallery').colorbox({
+	    maxWidth: '90%',
+	    maxHeight: '90%'
+	    });
+	  </script>	 
+	
+      <% end %>
+    </div>
+  </div>
+</div>
+<% if false %>
+<div class="slider-wrapper">
 	  <div id="slider" class="nivoSlider">
 	    <% @selected_gallery.photos.each do |photo| %>
 	      <%= link_to( image_tag(photo.photo.url, 'data-thumb' => photo.photo.small.url, :alt => '', :title => "#caption_#{photo.id}"), photo.photo.url, :class => "gallery") %>
@@ -47,8 +74,4 @@
 	    });
 	  </script>	  
 	</div>
-	
-      <% end %>
-    </div>
-  </div>
-</div>
+<% end %>
