@@ -11,11 +11,23 @@
 
     <%= javascript_include_tag "jquery.js" %>
     <%= javascript_include_tag "init.js" %>
+    <%= javascript_include_tag "slides.jquery.js" %>
     <%= javascript_include_tag "jquery.colorbox-min.js" %>
     <%#= javascript_include_tag "http://www.jacklmoore.com/colorbox/colorbox/jquery.colorbox.js" %>    
     
     <%= javascript_include_tag "jquery.nivo.slider.js" %>
+            
     
+        <script>
+            $(function(){
+                $("#slides").slides({
+					generateNextPrev: true,
+					generatePagination: false,
+					prev: 'nivo-prevNav',
+					next: 'nivo-nextNav'
+					});
+            });
+        </script>
     <%#= javascript_include_tag "application" %>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Voces|Exo:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
