@@ -9,4 +9,9 @@ class Gallery < ActiveRecord::Base
   class Translation
     attr_accessible :locale
   end
+
+  def sorted_photos
+      photos = Photo.where(:gallery_id => self.id).order("position ASC")
+      return photos
+  end
 end

@@ -14,7 +14,7 @@
     <tr>
       <td><%= gallery.title %> <%= "(#{ show_category(gallery.label) })" if gallery.label.present? %></td>
       <td>
-        <% gallery.photos.each do |photo| %>
+        <% gallery.sorted_photos.each do |photo| %>
           <%= image_tag photo.photo.thumb.url, :title => photo.p_title, :alt => photo.p_title %>
         <% end %>
       </td>
