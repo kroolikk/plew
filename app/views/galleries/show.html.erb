@@ -1,3 +1,5 @@
+<h1>Galeria <%= (disp = show_gal_type(session[:section], session[:type])).present? ? '- '+disp : '' %></h1>
+
 <p>
 	<b>Tytuł Albumu:</b>
 	<%= @gallery.title %>

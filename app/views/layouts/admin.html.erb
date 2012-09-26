@@ -79,8 +79,8 @@
 		<li><%= link_to "Video", vids_url %></li>
 	      <% else %>
 		<li><%= link_to "Strony informacyjne", pages_url %></li>
-		<li><%= link_to "Albumy autorskie", set_gallery_type_url(:type => GAL_TYPE[0]) %></li>
-		<li><%= link_to "Albumy komercyjne", set_gallery_type_url(:type => GAL_TYPE[1]) %></li>
+		<li><%= link_to show_gal_type(session[:section], GAL_TYPE[0]).capitalize, set_gallery_type_url(:type => GAL_TYPE[0]) %></li>
+		<li><%= link_to show_gal_type(session[:section], GAL_TYPE[1]).capitalize, set_gallery_type_url(:type => GAL_TYPE[1]) %></li>
 	      <% end %>
 	    <% end %>
 	  </ul>

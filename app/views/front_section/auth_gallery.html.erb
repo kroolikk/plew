@@ -2,76 +2,71 @@
   <div class="left-gal">    
     <div class="category-holder">
       <% if params[:section] != SECTION[1] %>
-	<%= link_to t('main.return'), auth_gallery_categories_url(:section => params[:section]) %><br/><br/>
+      <%= link_to t('main.return'), auth_gallery_categories_url(:section => params[:section]) %><br/><br/>
       <% end %>
       
       <p><%= t('main.category') %>:</p>
 
       <ul>	
-	<% @galleries.each do |gallery| %>
-	  <li>
-	    <% if params[:cat].present? %>
-              <%= link_to gallery.title, auth_gallery_specific_url(:section => params[:section], :cat => params[:cat], :id => gallery) %>
-	    <% else %>
-	      <%= link_to gallery.title, auth_gallery_specific_url(:section => params[:section], :id => gallery) %>
-	    <% end %>
-	  </li>
-	<% end %>
+        <% @galleries.each do |gallery| %>
+        <li>
+          <% if params[:cat].present? %>
+          <%= link_to gallery.title, auth_gallery_specific_url(:section => params[:section], :cat => params[:cat], :id => gallery) %>
+          <% else %>
+          <%= link_to gallery.title, auth_gallery_specific_url(:section => params[:section], :id => gallery) %>
+          <% end %>
+        </li>
+        <% end %>
       </ul>
     </div>
   </div>
   <div class="right-gal">
     <div class="right-col">
-		
-		
-		
-		
-		
       <% if @selected_gallery.present? %>
-	<div class="clear album-desc">
-	  <%= @selected_gallery.description %>
-	</div>
-	
-	
+      <div class="clear album-desc">
+        <%= @selected_gallery.description %>
+      </div>
 
-<div id="slides">
-            <div class="slides_container">
-                <% @selected_gallery.photos.each do |photo| %>
-                <div>
-					<p class="photo-title"><%= photo.p_title %></p>
-					<%= link_to(image_tag(photo.photo.url), photo.photo.url, :class => "gallery") %>
-				</div>
-				<% end %>
-            </div><br>
-            <ul class="pagination">
-				<% @selected_gallery.photos.each do |photo| %>
-					<li class="nivo-thumbs-enabled"><a href="#"><%= image_tag(photo.photo.small.url) %></a></li>
-				<% end %>
-			</ul>
-        </div>
-	<script>
-	    jQuery('a.gallery').colorbox({
-	    maxWidth: '90%',
-	    maxHeight: '90%'
-	    });
-	  </script>	 
-	
+      <div id="slides">
+        <div class="slides_container">
+          <% @selected_gallery.sorted_photos.each do |photo| %>
+          <div>
+            <p class="photo-title"><%= photo.p_title %></p>
+            <%= link_to(image_tag(photo.photo.main.url), photo.photo.url, :class => "gallery") %>
+          </div>
+          <% end %>
+        </div><br>
+        <ul class="pagination">
+          <% @selected_gallery.sorted_photos.each do |photo| %>
+          <li class="nivo-thumbs-enabled"><a href="#"><%= image_tag(photo.photo.small.url) %></a></li>
+          <% end %>
+        </ul>
+      </div>
+      <script>
+      jQuery('a.gallery').colorbox({
+        maxWidth: '90%',
+        maxHeight: '90%'
+      });
+      </script>	 
+
       <% end %>
     </div>
   </div>
 </div>
+
+
 <% if false %>
 <div class="slider-wrapper">
-	  <div id="slider" class="nivoSlider">
-	    <% @selected_gallery.photos.each do |photo| %>
-	      <%= link_to( image_tag(photo.photo.url, 'data-thumb' => photo.photo.small.url, :alt => '', :title => "#caption_#{photo.id}"), photo.photo.url, :class => "gallery") %>
-	    <% end %>
-	  </div><!-- odpalacz coloboxa wewnatrz nivoslidera, musi być tu -->
-	  <script>
-	    jQuery('a.gallery').colorbox({
-	    maxWidth: '90%',
-	    maxHeight: '90%'
-	    });
-	  </script>	  
-	</div>
+ <div id="slider" class="nivoSlider">
+   <% @selected_gallery.photos.each do |photo| %>
+   <%= link_to( image_tag(photo.photo.url, 'data-thumb' => photo.photo.small.url, :alt => '', :title => "#caption_#{photo.id}"), photo.photo.url, :class => "gallery") %>
+   <% end %>
+ </div><!-- odpalacz coloboxa wewnatrz nivoslidera, musi być tu -->
+ <script>
+ jQuery('a.gallery').colorbox({
+   maxWidth: '90%',
+   maxHeight: '90%'
+ });
+ </script>	  
+</div>
 <% end %>

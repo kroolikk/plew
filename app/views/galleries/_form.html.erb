@@ -15,7 +15,11 @@
   <% if session[:section] == SECTION[0] %>
     <div class="field">
       <%= f.label :label, "Kategoria" %>
-      <%= f.select :label, options_for_select(CATEGORIES1, @gallery.label) %>
+      <% if session[:type] == GAL_TYPE[0] %>
+        <%= f.select :label, options_for_select(CATEGORIES1A, @gallery.label) %>
+      <% else %>
+        <%= f.select :label, options_for_select(CATEGORIES1B, @gallery.label) %>
+      <% end %>
     </div>
   <% elsif session[:section] == SECTION[1] %>
   <% else %>

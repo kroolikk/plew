@@ -2,11 +2,37 @@
 module ApplicationHelper
 
 
+  def show_gal_type(section, type)
+    if type == GAL_TYPE[0]
+      # auth
+      if section == SECTION[0]
+        return "szkice z kultury"
+      elsif section == SECTION[1]
+        return "albumy autorskie"
+      else
+        return ""
+      end
+    else
+      #com
+      if section == SECTION[0]
+        return "szkice z natury"
+      elsif section == SECTION[1]
+        return "albumy komercyjne"
+      else
+        return ""
+      end
+    end
+  end
+
+
+
   def show_category(category)
-    res = CATEGORIES1.detect{|c| c[1] == category}
-    
+    res = CATEGORIES1A.detect{|c| c[1] == category}
+
+    res = CATEGORIES1B.detect{|c| c[1] == category} if res.blank?
+
     res = CATEGORIES2.detect{|c| c[1] == category} if res.blank?
-    
+
     if res.present? 
       if res[0].present?
         ret = res[0]
@@ -44,7 +70,7 @@ module ApplicationHelper
     end
   end
 
-  
+
   def display_user(user)
     case user
     when SECTION[0] then "Wojciech Plewiński"
@@ -53,7 +79,7 @@ module ApplicationHelper
     else ""
     end
   end
-  
+
 
   def pages_label(label)
     case label
@@ -67,8 +93,8 @@ module ApplicationHelper
   def link_to_remove_fields(name, f)
     f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)")
   end
-  
-  
+
+
   def link_to_add_fields(name, f, association)
     new_object = f.object.class.reflect_on_association(association).klass.new
     fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|

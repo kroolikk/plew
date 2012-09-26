@@ -1,4 +1,4 @@
-<h1>Edytuj Album</h1>
+<h1>Edytuj Album <%= (disp = show_gal_type(session[:section], session[:type])).present? ? '- '+disp : '' %></h1>
 
 <%= render 'form' %>
 

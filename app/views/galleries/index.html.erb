@@ -1,4 +1,4 @@
-<h1>Albumy zdjęć</h1>
+<h1>Albumy zdjęć <%= (disp = show_gal_type(session[:section], session[:type])).present? ? '- '+disp : '' %></h1>
 <%= link_to 'Dodaj nowy album', new_gallery_path %>
 <br/>
 <br/>

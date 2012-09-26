@@ -1,4 +1,4 @@
-<h1>Nowy Album</h1>
+<h1>Nowy Album <%= (disp = show_gal_type(session[:section], session[:type])).present? ? '- '+disp : '' %></h1>
 
 <%= render 'form' %>
 <div class="clearspace"></div>

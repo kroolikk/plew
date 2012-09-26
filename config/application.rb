@@ -14,14 +14,16 @@ PAGE_LABELS = [["Recenzje", "review"],
 
 AVAILABLE_LANGUAGES = [:pl, :en]
 
-CATEGORIES1 = [['Teatr', 'teatr'], 
-               ['Portety', 'portety'], 
-               ['Przekrój', 'przekroj'], 
-               ['Akty', 'akty'], 
-               ['Zauważone', 'zauwazone'], 
-               ['Reportaże', 'reportaze'], 
-               ['Łowy', 'lowy'], 
-               ['Portrety własne', 'portrety-wlasne']]
+CATEGORIES1A = [['Teatr', 'teatr'], 
+                ['Muzyka', 'music'],
+                ['Portety', 'portety'], 
+                ['Przekrój', 'przekroj']]
+
+CATEGORIES1B = [['Akty', 'akty'], 
+                ['Zauważone', 'zauwazone'], 
+                ['Reportaże', 'reportaze'], 
+                ['Łowy', 'lowy'], 
+                ['Portrety własne', 'portrety-wlasne']]
 
 CATEGORIES2 = [['kategoria1', 'cat1'], ['kategoria2', 'cat2'], ['kategoria3', 'cat3'], ['kategoria4', 'cat4'], ['kategoria5', 'cat5']]
 

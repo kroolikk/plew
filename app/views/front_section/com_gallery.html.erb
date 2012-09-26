@@ -1,53 +1,44 @@
-
 <div class="gallery-holder">
-	
 	<div class="left-gal">
-		
-<div class="category-holder">
-    <p><%= t('main.category') %>:</p>
-    
+    <div class="category-holder">
+      <p><%= t('main.category') %>:</p>
       <ul>
-	<% @galleries.each do |gallery| %>
-	  <li><%= link_to gallery.title, com_gallery_specific_url(:section => params[:section], :id => gallery) %></li>
-	<% end %>	
+       <% @galleries.each do |gallery| %>
+       <li><%= link_to gallery.title, com_gallery_specific_url(:section => params[:section], :id => gallery) %></li>
+       <% end %>	
       </ul>
+    </div>
   </div>
-</div>
-<div class="right-gal">
-  
+  <div class="right-gal">
 
-  <div class="right-col">
-        <% if @selected_gallery.present? %>
-	<div class="clear album-desc">
-	  <%= @selected_gallery.description %>
-	</div>
-	
-	
-
-<div id="slides">
-            <div class="slides_container">
-                <% @selected_gallery.photos.each do |photo| %>
-                <div>
-					<p class="photo-title"><%= photo.p_title %></p>
-					<%= link_to(image_tag(photo.photo.url), photo.photo.url, :class => "gallery") %>
-				</div>
-				<% end %>
-            </div><br>
-            <ul class="pagination">
-				<% @selected_gallery.photos.each do |photo| %>
-					<li class="nivo-thumbs-enabled"><a href="#"><%= image_tag(photo.photo.small.url) %></a></li>
-				<% end %>
-			</ul>
+    <div class="right-col">
+      <% if @selected_gallery.present? %>
+        <div class="clear album-desc">
+          <%= @selected_gallery.description %>
         </div>
-	<script>
-	    jQuery('a.gallery').colorbox({
-	    maxWidth: '90%',
-	    maxHeight: '90%'
-	    });
-	  </script>	 
-	
+
+        <div id="slides">
+          <div class="slides_container">
+            <% @selected_gallery.sorted_photos.each do |photo| %>
+              <div>
+                <p class="photo-title"><%= photo.p_title %></p>
+                <%= link_to(image_tag(photo.photo.main.url), photo.photo.url, :class => "gallery") %>
+              </div>
+            <% end %>
+          </div><br>
+          <ul class="pagination">
+            <% @selected_gallery.sorted_photos.each do |photo| %>
+              <li class="nivo-thumbs-enabled"><a href="#"><%= image_tag(photo.photo.small.url) %></a></li>
+            <% end %>
+          </ul>
+        </div>
+        <script>
+          jQuery('a.gallery').colorbox({
+            maxWidth: '90%',
+            maxHeight: '90%'
+          });
+        </script>	 
       <% end %>
- </div></div>
-
-
+    </div>
+  </div>
 </div>

@@ -53,14 +53,14 @@
 	<% if params[:controller] != 'home' || params[:action] != 'index' %>
 	  <nav>
 	    <% if params[:section] == SECTION[2] %>
-	      <%= link_to t('main.photo_main'), auth_gallery_categories_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "auth_gallery") }" %>
+	      <%= link_to t('main.photo_main'), auth_gallery_categories_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "auth_gallery") } #{ set_selected_class("front_section", "auth_gallery_categories") }" %>
 	      <%= link_to t('main.video'), front_vid_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "vid") }" %>
 	    <% elsif params[:section] == SECTION[0] %>
-			<%= link_to t('main.culture'), auth_gallery_categories_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "auth_gallery") }" %>
+			<%= link_to t('main.culture'), auth_gallery_categories_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "auth_gallery") } #{ set_selected_class("front_section", "auth_gallery_categories") }" %>
 	      <%= link_to t('main.contact'), info_url, :class => "#{ set_selected_class("front_section", "info") }" %>
 	      <%= link_to t('main.nature'), com_gallery_categories_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "com_gallery") }" %>
 	    <% else %>
-	      <%= link_to t('main.photo_own'), auth_gallery_categories_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "auth_gallery") }" %>
+	      <%= link_to t('main.photo_own'), auth_gallery_categories_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "auth_gallery") } #{ set_selected_class("front_section", "auth_gallery_categories") }" %>
 	      <%= link_to t('main.contact'), info_url, :class => "#{ set_selected_class("front_section", "info") }" %>
 	      <%= link_to t('main.photo_com'), com_gallery_categories_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "com_gallery") }" %>
 	    <% end %>
