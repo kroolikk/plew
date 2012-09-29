@@ -43,6 +43,9 @@
 	
 	<% if params[:controller] == 'home' || params[:action] == 'index' %>
 	  <div class="clearspace"></div>
+	<% elsif params[:section] == SECTION[2] %>
+		<%= link_to image_tag('fillogo.png'), auth_gallery_categories_url, :class => "fil-home" %>
+		<%= link_to '', root_url, :class => "home-icon", :style => "display: inline-block;" %>
 	<% else %>
 	  <h1>
 	    
@@ -53,8 +56,13 @@
 	<% if params[:controller] != 'home' || params[:action] != 'index' %>
 	  <nav>
 	    <% if params[:section] == SECTION[2] %>
-	      <%= link_to t('main.photo_main'), auth_gallery_categories_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "auth_gallery") } #{ set_selected_class("front_section", "auth_gallery_categories") }" %>
-	      <%= link_to t('main.video'), front_vid_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "vid") }" %>
+			<% if session[:locale] == 'pl' %>
+	      <%= link_to image_tag('pllink1.png'), front_vid_url(:section => params[:section]), :class => "link1" %>
+	      <%= link_to image_tag('pllink2.png'), auth_gallery_categories_url(:section => params[:section]), :class => "link2" %>
+	        <% else %>
+	      <%= link_to image_tag('enlink1.png'), front_vid_url(:section => params[:section]), :class => "link1" %>
+	      <%= link_to image_tag('enlink2.png'), auth_gallery_categories_url(:section => params[:section]), :class => "link2" %>
+	        <% end %>
 	    <% elsif params[:section] == SECTION[0] %>
 			<%= link_to t('main.culture'), auth_gallery_categories_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "auth_gallery") } #{ set_selected_class("front_section", "auth_gallery_categories") }" %>
 	      <%= link_to t('main.contact'), info_url, :class => "#{ set_selected_class("front_section", "info") }" %>

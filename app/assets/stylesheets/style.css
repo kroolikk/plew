@@ -38,6 +38,9 @@ margin-left: 50px;
 .clear {
 	clear: both;
 }
+header {
+	position: relative;
+}
 .clearspace {
 	clear: both;
 	height: 50px;
@@ -412,33 +415,17 @@ margin-top: 38px;
 	height:600px;
 	display:block;
 }
-/* @media all and (max-width: 1118px) {
-	header h1 {
-		width: 455px;
-		text-align: center;
-		float: none;
-		margin: 0 auto;
-	}
-	nav {text-align: center;
-	clear: both;
-	float: none;
-	margin-top: 50px;
-	margin-bottom: 20px;
-	}
-	.film-holder span {
-		bottom: 80px;
-	}
+.fil-home {
+margin: 17px 0px;
+display: inline-block;
 }
-/* tu nie dopisuj cssów
-@media all and (max-width: 620px) {
-	header h1 {	width: 268px; }
-	header h1 a {font-size: 36px;}
-	header h1 span {top: 44px;}
-	nav a {display: block;}
-		.film-holder span {
-		left: 30%;
-		bottom: 60px;
-		font-size: 20px;
-	}
-} */
-/* tu nie dopisuj cssów */
+.link1 {
+	position: absolute;
+	top: 21px;
+	left: 385px;
+}
+.link2 {
+	position: absolute;
+	left: 385px;
+	top: 56px;
+}
