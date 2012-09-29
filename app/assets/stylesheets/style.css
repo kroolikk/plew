@@ -429,3 +429,7 @@ display: inline-block;
 	left: 385px;
 	top: 56px;
 }
+ul.pagination {
+	width: 615px;
+	margin: 0 auto;
+}
