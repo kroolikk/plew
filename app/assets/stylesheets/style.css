@@ -252,7 +252,7 @@ nav a {
 	top:0;
 	width: 30px;
 	background: url(/assets/nav-controls.png) top left no-repeat;
-	left: -35px;
+	left: 5px;
 	height: 40px;
 		text-indent: -9999px;
 
@@ -262,7 +262,7 @@ nav a {
 	top:0;
 	width: 30px;
 	background: url(/assets/nav-controls.png) top right no-repeat;
-	right: -41px;
+	right: 5px;
 	height: 40px;
 	text-indent: -9999px;
 }
@@ -297,6 +297,9 @@ nav a {
 .right-col {
 	width: 700px;
 	float: left;
+}
+.category-holder img {
+max-width: 270px;
 }
 .category-holder li {
 	width: 230px;
