@@ -57,7 +57,7 @@ class FrontSectionController < ApplicationController
   
   def com_gallery
     if params[:section].present?
-      if params[:cat].present?
+      if params[:cat].present? && params[:cat] != 'wszystkie'
         @galleries = Gallery.where(:section => params[:section], :gal_type => GAL_TYPE[1], :label => params[:cat])
       else
         @galleries = Gallery.where(:section => params[:section], :gal_type => GAL_TYPE[1])
