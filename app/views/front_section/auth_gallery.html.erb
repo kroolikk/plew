@@ -1,21 +1,31 @@
 <div class="gallery-holder">  
   <div class="left-gal">    
     <div class="category-holder">
-      <% if params[:section] != SECTION[1] %>
-      <%= link_to t('main.return'), auth_gallery_categories_url(:section => params[:section]) %><br/><br/>
+      <% if params[:section] == SECTION[0] %>
+        <%= link_to t('main.return'), auth_gallery_categories_url(:section => params[:section]) %><br/><br/>
       <% end %>
-      
-      <p><%= t('main.category') %>:</p>
 
+      <p><%= t('main.category') %>:</p>
       <ul>	
         <% @galleries.each do |gallery| %>
-        <li>
-          <% if params[:cat].present? %>
-          <%= link_to gallery.title, auth_gallery_specific_url(:section => params[:section], :cat => params[:cat], :id => gallery) %>
+          
+          <% if params[:section] == SECTION[2] %>
+            <li>
+              <% if params[:cat].present? %>
+                <%= link_to image_tag(gallery.icon.main.url, :alt => gallery.title), auth_gallery_specific_url(:section => params[:section], :cat => params[:cat], :id => gallery) %>
+              <% else %>
+                <%= link_to gallery.title, auth_gallery_specific_url(:section => params[:section], :id => gallery) %>
+              <% end %>
+            </li>
           <% else %>
-          <%= link_to gallery.title, auth_gallery_specific_url(:section => params[:section], :id => gallery) %>
+            <li>
+              <% if params[:cat].present? %>
+                <%= link_to gallery.title, auth_gallery_specific_url(:section => params[:section], :cat => params[:cat], :id => gallery) %>
+              <% else %>
+                <%= link_to gallery.title, auth_gallery_specific_url(:section => params[:section], :id => gallery) %>
+              <% end %>
+            </li>
           <% end %>
-        </li>
         <% end %>
       </ul>
     </div>

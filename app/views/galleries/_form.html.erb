@@ -24,8 +24,12 @@
   <% elsif session[:section] == SECTION[1] %>
   <% else %>
     <div class="field">
-      <%= f.label :label, "Kategoria" %>
-      <%= f.select :label, options_for_select(CATEGORIES2, @gallery.label) %>
+      <%= f.label :label, "Wskaż ikonę" %>
+      <%= f.file_field :icon %>
+      <%= image_tag(@gallery.icon.thumb.url) if @gallery.icon.present? %>
+
+      <%#= f.label :label, "Kategoria" %>
+      <%#= f.select :label, options_for_select(CATEGORIES2, @gallery.label) %>
     </div>
   <% end %>
     

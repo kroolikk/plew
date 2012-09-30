@@ -2,7 +2,7 @@ class FrontSectionController < ApplicationController
 
   def auth_gallery_categories
     if params[:section].present?      
-      if params[:section] == SECTION[1]
+      if (params[:section] == SECTION[1]) || (params[:section] == SECTION[2])
         redirect_to auth_gallery_url(:section => params[:section], :cat => 'wszystkie')
       else
         categories = Gallery.where(["section = '#{params[:section]}' AND gal_type = '#{GAL_TYPE[0]}' AND label IS NOT NULL"])
