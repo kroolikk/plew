@@ -1,0 +1,6 @@
+<% if @review.present? %>
+  <%= @review.rev_date.strftime("%Y.%m.%d") %> <%= @review.title %><br/>
+  <%= raw @review.content %><br/>
+<% end %>
+<br/>
+<%= link_to t('main.return'), info_url %>
