@@ -1,6 +1,15 @@
-<% if @review.present? %>
-  <%= @review.rev_date.strftime("%Y.%m.%d") %> <%= @review.title %><br/>
-  <%= raw @review.content %><br/>
-<% end %>
-<br/>
-<%= link_to t('main.return'), info_url %>
+<div id="tabs">
+	<ul>
+    <li class="tabbed"><a href="../info#tab-1"><%= t('main.return') %></a></li>
+    </ul>
+    <p class="clear"></p>
+	<div id="tab-1" class="review">
+	<% if @review.present? %>
+		<span class="pub-date"><%= @review.rev_date.strftime("%Y.%m.%d") %> </span>
+		<h6><%= @review.title %></h6>
+		<%= raw @review.content %><br/>
+	<% end %>
+		<br/>
+		
+	</div>
+</div>

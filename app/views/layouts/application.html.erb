@@ -62,11 +62,11 @@
       <% end %>
     <% elsif params[:section] == SECTION[0] %>
       <%= link_to t('main.culture'), auth_gallery_categories_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "auth_gallery") } #{ set_selected_class("front_section", "auth_gallery_categories") }" %>
-      <%= link_to t('main.contact'), info_url, :class => "#{ set_selected_class("front_section", "info") }" %>
+      <%= link_to t('main.contact'), info_url, :class => "#{ set_selected_class("front_section", ["info","review"]) }" %>
       <%= link_to t('main.nature'), com_gallery_categories_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "com_gallery") }" %>
     <% else %>
       <%= link_to t('main.photo_own'), auth_gallery_categories_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "auth_gallery") } #{ set_selected_class("front_section", "auth_gallery_categories") }" %>
-      <%= link_to t('main.contact'), info_url, :class => "#{ set_selected_class("front_section", "info") }" %>
+      <%= link_to t('main.contact'), info_url, :class => "#{ set_selected_class("front_section", ["info","review"]) }" %>
       <%= link_to t('main.photo_com'), com_gallery_categories_url(:section => params[:section]), :class => "#{ set_selected_class("front_section", "com_gallery") }" %>
     <% end %>	    
   </nav>

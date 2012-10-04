@@ -4,13 +4,15 @@
     <li class="tabbed"><a href="#tab-2"><%= t('main.contact_label') %></a></li>
   </ul>
   <p class="clear"></p>
-  <div id="tab-1">
+  <div id="tab-1" class="review-area">
     <% @reviews.each do |review| %>
       <%= link_to front_review_url(params[:section], review) do %>
-        <%= review.rev_date.strftime("%Y.%m.%d") %> <%= review.title %><br/>
-        <%= raw truncate(strip_tags(review.content), :length => 200) %><br/>
+        <span class="pub-date"><%= review.rev_date.strftime("%Y.%m.%d") %></span><br>
+        <h6><%= review.title %></h6>
+        <%= raw truncate(strip_tags(review.content), :length => 350) %><br><br>
+        <span class="pub-read">Czytaj więcej »</span>
       <% end %>
-      <p class="clear"></p>
+      <p class="clear"><br></p>
       <br/>
     <% end %>
   </div>
