@@ -5,7 +5,7 @@
     <p class="clear"></p>
 	<div id="tab-1" class="review">
 	<% if @review.present? %>
-		<span class="pub-date"><%= @review.rev_date.strftime("%Y.%m.%d") %> </span>
+		<span class="pub-date"><%= @review.rev_date.strftime("%Y.%m.%d") if @review.rev_date.present? %> </span>
 		<h6><%= @review.title %></h6>
 		<%= raw @review.content %><br/>
 	<% end %>

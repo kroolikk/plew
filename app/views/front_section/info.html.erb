@@ -7,7 +7,7 @@
   <div id="tab-1" class="review-area">
     <% @reviews.each do |review| %>
       <%= link_to front_review_url(params[:section], review) do %>
-        <span class="pub-date"><%= review.rev_date.strftime("%Y.%m.%d") %></span><br>
+        <span class="pub-date"><%= review.rev_date.strftime("%Y.%m.%d") if review.rev_date.present? %></span><br>
         <h6><%= review.title %></h6>
         <%= raw truncate(strip_tags(review.content), :length => 350) %><br><br>
         <span class="pub-read">Czytaj więcej »</span>
