@@ -12,9 +12,21 @@
   <% end %>
 
 
+
   <div class="field">
     <%= f.label :label, "Strona" %><br />
     <%= f.select :label, options_for_select(Page::PAGE_LABELS, @page.label) %>
+  </div>
+
+  <div class="review_infos field" style="<%= 'display:none;' if @page.label == Page::PAGE_LABELS[1][1] %>">
+    <div class="field">
+      <%= f.label :title, "Tytuł" %><br />
+      <%= f.text_field :title %>
+    </div>    
+    <div class="field">
+      <%= f.label :rev_date, "Data recenzji" %><br />
+      <%= f.date_select(:rev_date, { :use_month_names => ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"] }) %>
+    </div>
   </div>
 
   <div class="field">
@@ -41,3 +53,15 @@
   </div>
   <div class="clearspace"></div>
 <% end %>
+
+
+
+<script type="text/javascript">
+  $("#page_label").change( function() {
+    if ( $(this).val() == "<%= Page::PAGE_LABELS[0][1] %>" ) {
+      $('.review_infos').show();
+    } else {
+      $('.review_infos').hide();
+    };
+  });
+</script>

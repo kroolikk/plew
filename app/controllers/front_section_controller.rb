@@ -90,13 +90,16 @@ class FrontSectionController < ApplicationController
 
   
   def info
-    if params[:section].present?
-      
-      @review = Page.where(:section => params[:section], :label => PAGE_LABELS[0][1]).first
-      @contact = Page.where(:section => params[:section], :label => PAGE_LABELS[1][1]).first
-      
+    if params[:section].present?      
+      @reviews = Page.where(:section => params[:section], :label => PAGE_LABELS[0][1]).order("created_at DESC")
+      @contact = Page.where(:section => params[:section], :label => PAGE_LABELS[1][1]).first      
     else
       redirect_to root_url
     end
+  end
+
+
+  def review
+    @review = Page.find(params[:id])    
   end
 end

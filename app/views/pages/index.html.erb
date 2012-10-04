@@ -1,8 +1,9 @@
 <h1>Strony informacyjne</h1>
 
-<table>
+<table width="100%">
   <tr>
     <th>Strona</th>
+    <th>Tytuł</th>
     <th>Początek treści</th>
     <th></th>
     <th></th>
@@ -12,7 +13,8 @@
 <% @pages.each do |page| %>
   <tr>
     <td><%= pages_label(page.label) %></td>
-    <td><%= truncate( strip_tags(page.content), :length => 50) %></td>
+    <td width="10%"><%= raw page.title+"<br/>"+page.rev_date.strftime("%Y.%m.%d") if page.label == Page::PAGE_LABELS[0][1] %></td>
+    <td><%= truncate(strip_tags(page.content), :length => 50) %></td>
     <td><%= link_to 'Edytuj', edit_page_path(page) %></td>
     <td><%= link_to 'Usuń', page, confirm: 'Napewno usunać?', method: :delete %></td>
   </tr>

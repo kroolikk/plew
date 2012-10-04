@@ -18,7 +18,7 @@ PlewDev1::Application.routes.draw do
   match "/:section/video" => "front_section#vid", :as => :front_vid
   match "/:section/video/:id" => "front_section#single_vid", :as => :front_vid_single
   match "/:section/info" => "front_section#info", :as => :info
-
+  match "/:section/recenzja/:id" => "front_section#review", :as => :front_review
 
 
   match 'zmien-jezyk/:locale' => 'application#set_locale', :as => :set_language

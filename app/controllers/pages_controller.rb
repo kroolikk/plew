@@ -3,7 +3,7 @@ class PagesController < AdminController
 
 
   def index
-    @pages = Page.where(:section => session[:section])
+    @pages = Page.where(:section => session[:section]).order("label ASC, created_at ASC")
   end
 
 
