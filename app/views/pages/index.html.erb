@@ -13,7 +13,7 @@
 <% @pages.each do |page| %>
   <tr>
     <td><%= pages_label(page.label) %></td>
-    <td width="10%"><%= raw page.title+"<br/>"+page.rev_date.strftime("%Y.%m.%d") if page.label == Page::PAGE_LABELS[0][1] %></td>
+    <td width="10%"><%= page.title %> <%= raw "<br/>"+page.rev_date.strftime("%Y.%m.%d") if page.label == Page::PAGE_LABELS[0][1] && page.rev_date.present? %></td>
     <td><%= truncate(strip_tags(page.content), :length => 50) %></td>
     <td><%= link_to 'Edytuj', edit_page_path(page) %></td>
     <td><%= link_to 'Usuń', page, confirm: 'Napewno usunać?', method: :delete %></td>
