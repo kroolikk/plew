@@ -349,6 +349,10 @@ max-width: 270px;
 }
 .film-holder {
 	margin-top: 50px;
+	width: 1094px;
+height: 683px;
+box-shadow: 3px 3px 24px;
+margin-top: 50px;
 }
 .film-holder a{
 	position: relative;
@@ -358,7 +362,8 @@ max-width: 270px;
 .film-holder a img{
 	margin: 0;
 	padding: 0; 
-	max-width: 33.3%;
+	width: 365px;
+	height: 683px;
 }
 .film-holder span {
 	font-size: 30px;
