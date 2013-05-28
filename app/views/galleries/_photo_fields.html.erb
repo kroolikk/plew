@@ -4,7 +4,10 @@
 </div>
 <div class="field">
   <%= f.label :photo, "Plik" %>
+
   <%= f.file_field :photo %>
+  <%= f.hidden_field :photo_cache %>
+
   <%= link_to_remove_fields "usuń", f %><br>
   <% if f.object.photo.present? %>
     <br /><%= (image_tag f.object.photo.thumb.url) %><br>
