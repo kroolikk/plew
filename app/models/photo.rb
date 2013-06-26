@@ -1,5 +1,5 @@
 class Photo < ActiveRecord::Base
-  attr_protected :id
+  attr_accessible :gallery_id, :photo, :photo_cache, :created_at, :updated_at, :p_title, :position
 
   acts_as_list
   
